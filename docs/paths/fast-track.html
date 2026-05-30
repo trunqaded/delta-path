@@ -29,19 +29,40 @@
       </aside>
       <main class="doc-main">
         <h1>Путь 2. Сразу главное</h1>
-        <p>Быстрый вход в практическое ядро опционов: не вся теория подряд, а сначала то, где возникает реальный риск.</p>
+        <p>Быстрый маршрут к практическому ядру: где риск, где breakeven, почему payoff важнее красивого прогноза, и как theta, vega и implied volatility могут испортить настроение.</p>
+
         <h2>Главные вопросы</h2>
-        <ul>
-          <li>Где breakeven?</li>
-          <li>Какой максимальный убыток?</li>
-          <li>Что будет при росте, падении и боковике?</li>
-          <li>Что сделает theta, если цена не двигается?</li>
-          <li>Что сделает vega, если implied volatility упадет?</li>
-          <li>Почему можно угадать направление и все равно потерять деньги?</li>
-        </ul>
-        <h2>Практическое ядро</h2>
-        <p>Начинаем с простой сделки: BTC = $100,000, call strike = $110,000, premium = $3,000, expiry = 30 дней.</p>
-        <p>Сразу считаем breakeven, максимальный убыток, прибыль на экспирации и сценарии движения цены.</p>
+        <table>
+          <thead><tr><th>Вопрос</th><th>Почему важен</th></tr></thead>
+          <tbody>
+            <tr><td>Где breakeven?</td><td>Цена может пойти в твою сторону, но недостаточно далеко</td></tr>
+            <tr><td>Какой max loss?</td><td>Без этого сделка не имеет рамки</td></tr>
+            <tr><td>Как выглядит payoff?</td><td>Он показывает сценарии на expiry</td></tr>
+            <tr><td>Что делает theta?</td><td>Время может съесть premium</td></tr>
+            <tr><td>Что делает vega?</td><td>Падение IV может ударить по option price</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Быстрый пример</h2>
+        <p>BTC = $100,000, long call strike = $110,000, premium = $3,000, expiry = 30 дней.</p>
+        <p><code>Breakeven = $110,000 + $3,000 = $113,000</code>.</p>
+
+        <table>
+          <thead><tr><th>BTC на expiry</th><th>Intrinsic value</th><th>P/L</th></tr></thead>
+          <tbody>
+            <tr><td>$105,000</td><td>$0</td><td>-$3,000</td></tr>
+            <tr><td>$110,000</td><td>$0</td><td>-$3,000</td></tr>
+            <tr><td>$113,000</td><td>$3,000</td><td>$0</td></tr>
+            <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Мини-тест</h2>
+        <ol>
+          <li>Для long call breakeven: strike + premium или strike - premium?</li>
+          <li>Кому обычно вредит theta: покупателю или продавцу option?</li>
+          <li>IV crush - это рост цены underlying или падение implied volatility после события?</li>
+        </ol>
       </main>
     </div>
   </body>

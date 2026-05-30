@@ -28,22 +28,43 @@
         </nav>
       </aside>
       <main class="doc-main">
-        <h1>Начать здесь</h1>
-        <p>Delta Path учит опционам через два маршрута по одному набору материалов.</p>
-        <div class="doc-card-grid">
-          <a class="doc-card" href="paths/from-zero.html"><strong>С нуля</strong><span>Плавный маршрут: база рынка, опционы, греки, волатильность, стратегии и риск.</span></a>
-          <a class="doc-card" href="paths/fast-track.html"><strong>Сразу главное</strong><span>Быстрый маршрут: breakeven, payoff, риск, theta, vega и IV crush.</span></a>
-        </div>
-        <h2>Цель</h2>
-        <p>Не угадывать рынок, а понимать, что происходит с позицией при росте, падении, боковике, изменении implied volatility и приближении экспирации.</p>
-        <h2>Как проходить</h2>
-        <ol>
-          <li>Разбираем одну идею.</li>
-          <li>Считаем простой пример.</li>
-          <li>Сравниваем крипто и обычный рынок.</li>
-          <li>Делаем мини-задачу.</li>
-          <li>Записываем вывод в журнал.</li>
-        </ol>
+        <h1>Как начать</h1>
+        <p>Delta Path учит видеть всю конструкцию риска: <code>underlying price</code>, <code>strike</code>, <code>premium</code>, <code>expiry</code>, <code>payoff</code>, <code>delta</code>, <code>theta</code>, <code>vega</code> и <code>implied volatility</code>.</p>
+
+        <h2>Два режима навигации</h2>
+        <table>
+          <thead><tr><th>Режим</th><th>Для чего нужен</th><th>Как использовать</th></tr></thead>
+          <tbody>
+            <tr><td>С нуля</td><td>Последовательно собрать базу</td><td>Идти по урокам спокойно, без прыжков</td></tr>
+            <tr><td>Сразу главное</td><td>Быстро увидеть практическое ядро</td><td>Использовать как карту рисков и повторение</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Первое правило</h2>
+        <p>Опцион - это не просто ставка "вверх" или "вниз". Это сделка, где одновременно работают цена, время, volatility, liquidity, payoff и position sizing.</p>
+
+        <table>
+          <thead><tr><th>Компонент</th><th>Что означает</th></tr></thead>
+          <tbody>
+            <tr><td><code>underlying price</code></td><td>куда движется базовый актив</td></tr>
+            <tr><td><code>time</code></td><td>сколько осталось до expiry</td></tr>
+            <tr><td><code>implied volatility</code></td><td>какое движение рынок уже заложил в цену</td></tr>
+            <tr><td><code>liquidity</code></td><td>насколько дорого войти и выйти</td></tr>
+            <tr><td><code>payoff</code></td><td>что будет на экспирации</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Первая задача</h2>
+        <p>BTC = $100,000, long call strike = $110,000, premium = $3,000, expiry = 30 дней.</p>
+        <table>
+          <thead><tr><th>BTC на expiry</th><th>Intrinsic value</th><th>P/L</th></tr></thead>
+          <tbody>
+            <tr><td>$105,000</td><td>$0</td><td>-$3,000</td></tr>
+            <tr><td>$113,000</td><td>$3,000</td><td>$0</td></tr>
+            <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td></tr>
+          </tbody>
+        </table>
+        <p><code>Breakeven = strike + premium = $113,000</code>. <code>Max loss = premium = $3,000</code>.</p>
       </main>
     </div>
   </body>

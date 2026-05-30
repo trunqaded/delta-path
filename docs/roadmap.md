@@ -1,136 +1,219 @@
-# Карта обучения
+# Карта курса Delta Path
 
-## Уровень 1. Основа рынка
+Карта курса показывает не "что можно когда-нибудь изучить", а порядок, в котором темы начинают складываться в рабочую систему.
 
-Цель: понимать, что происходит на бирже до перехода к опционам.
+## Уровни курса
 
-Темы:
+| Уровень | Тема | Главный результат |
+| --- | --- | --- |
+| 1 | Основа рынка | Понимать `bid`, `ask`, `spread`, `liquidity`, `spot`, `futures`, `perps` |
+| 2 | Опцион как контракт | Понимать `call`, `put`, `strike`, `premium`, `expiry` |
+| 3 | Payoff и первые позиции | Читать `payoff`, считать `breakeven`, `max loss`, `max profit` |
+| 4 | Greeks | Понимать `delta`, `gamma`, `theta`, `vega`, `rho` |
+| 5 | Volatility | Отличать `historical volatility`, `implied volatility`, `realized volatility` |
+| 6 | Базовые стратегии | Собирать `vertical spreads`, `covered call`, `cash-secured put` |
+| 7 | Volatility strategies | Разбирать `straddle`, `strangle`, `iron condor`, `calendar spread` |
+| 8 | Crypto options | Учитывать 24/7 рынок, `funding`, `open interest`, `platform risk` |
+| 9 | Risk system | Вести журнал, считать риск, оценивать процесс и статистику |
 
-- спот-рынок;
-- лонг и шорт;
-- маржа и плечо;
-- ликвидность;
-- bid, ask и spread;
-- рыночные и лимитные ордера;
-- стопы;
-- фьючерсы;
-- perpetual futures;
-- funding rate;
-- экспирация;
-- базовый риск на сделку.
+## Детальная карта
 
-## Уровень 2. Что такое опцион
+### 1. Основа рынка
 
-Опцион - это контракт, который дает право, но не обязанность, купить или продать актив по заранее заданной цене.
-
-Темы:
-
-- call;
-- put;
-- strike;
-- premium;
-- expiration;
-- ITM, ATM, OTM;
-- intrinsic value;
-- time value.
-
-## Уровень 3. Первые сделки
-
-Цель: понять четыре базовые позиции.
-
-- Long Call: ставка на рост, риск ограничен премией.
-- Long Put: ставка на падение, риск ограничен премией.
-- Short Call: продажа call, риск может быть очень большим.
-- Short Put: продажа put, риск большой при падении актива.
-
-На старте не продаем naked options.
-
-## Уровень 4. Греки
+Зачем: опционы нельзя понимать в вакууме. Если непонятно, что такое `spread` и `liquidity`, цена опциона выглядит как магия. Дорогая магия.
 
 Темы:
 
-- Delta: чувствительность к движению базового актива.
-- Gamma: скорость изменения delta.
-- Theta: распад временной стоимости.
-- Vega: чувствительность к implied volatility.
-- Rho: чувствительность к ставкам.
+- `spot market`;
+- `bid / ask / spread`;
+- market order и limit order;
+- long и short;
+- margin и leverage;
+- futures и perpetual futures;
+- `funding rate`;
+- `basis`;
+- expiry;
+- риск на сделку.
 
-## Уровень 5. Волатильность
+Практика:
 
-Опционы - это не только направление, но и торговля ожиданием движения.
+- сравнить два рынка по `spread`;
+- найти, где вход дороже;
+- объяснить, почему низкая ликвидность портит сделку еще до прогноза.
 
-Темы:
+### 2. Опцион как контракт
 
-- historical volatility;
-- implied volatility;
-- realized volatility;
-- IV rank;
-- IV crush;
-- события и отчеты;
-- crypto event volatility.
-
-## Уровень 6. Основные стратегии
-
-Направленные:
-
-- Long Call;
-- Long Put;
-- Bull Call Spread;
-- Bear Put Spread.
-
-Доходные:
-
-- Covered Call;
-- Cash-Secured Put.
-
-Волатильностные:
-
-- Straddle;
-- Strangle;
-- Iron Condor;
-- Calendar Spread.
-
-## Уровень 7. Крипто-опционы
-
-Особенности:
-
-- рынок работает 24/7;
-- BTC и ETH имеют более высокую волатильность;
-- ликвидность сконцентрирована;
-- важны funding, open interest, liquidation levels и perp basis;
-- добавляется риск биржи, контрагента, стейблкоинов и вывода средств.
-
-## Уровень 8. Профессиональный уровень
-
-Цель: мыслить не отдельными сделками, а портфелем.
+Зачем: понять механику права купить или продать.
 
 Темы:
 
-- delta exposure;
-- gamma exposure;
-- theta exposure;
-- vega exposure;
-- liquidity risk;
-- gap risk;
-- counterparty risk;
-- журнал сделок;
-- risk of ruin;
-- expectancy;
-- drawdown;
-- position sizing.
+- `call`;
+- `put`;
+- `strike`;
+- `premium`;
+- `expiry`;
+- `ITM`, `ATM`, `OTM`;
+- `intrinsic value`;
+- `extrinsic value`;
+- `breakeven`.
 
-## Месячный маршрут
+Практика:
 
-Месяц 1: база рынка и call/put.
+- классифицировать опционы как `ITM / ATM / OTM`;
+- посчитать `breakeven`;
+- определить, где option сгорает.
 
-Месяц 2: греки.
+### 3. Payoff и первые позиции
 
-Месяц 3: волатильность.
+Зачем: видеть форму риска до входа.
 
-Месяц 4: спреды.
+Темы:
 
-Месяц 5: сложные стратегии.
+- `payoff table`;
+- `long call`;
+- `long put`;
+- `short call`;
+- `short put`;
+- `max loss`;
+- `max profit`;
+- defined risk и undefined risk.
 
-Месяц 6: крипто-опционы.
+Практика:
 
-Месяц 7-9: системность, журнал, риск, статистика.
+- построить таблицу payoff;
+- найти `max loss`;
+- объяснить, почему naked short call - не "пассивный доход", а финансовый прыжок без проверки глубины бассейна.
+
+### 4. Greeks
+
+Зачем: понять, почему option price меняется даже без сильного движения underlying.
+
+Темы:
+
+- `delta`;
+- `gamma`;
+- `theta`;
+- `vega`;
+- `rho`;
+- Greeks near expiry;
+- Greeks как система, а не отдельные кнопки.
+
+Практика:
+
+- оценить изменение цены опциона через `delta`;
+- посчитать потери от `theta`;
+- разобрать влияние изменения `implied volatility` через `vega`.
+
+### 5. Volatility
+
+Зачем: понять, что options - это торговля ожиданием движения, а не только направлением.
+
+Темы:
+
+- `historical volatility`;
+- `implied volatility`;
+- `realized volatility`;
+- `IV rank`;
+- `IV crush`;
+- `skew`;
+- `term structure`;
+- event risk.
+
+Исторические примеры:
+
+- earnings и `IV crush` на акциях;
+- резкие движения BTC после макро-новостей;
+- периоды, когда рынок "знал", что будет движение, но не знал куда.
+
+### 6. Базовые стратегии
+
+Зачем: перейти от одиночных options к конструкциям с ограниченным риском.
+
+Темы:
+
+- `bull call spread`;
+- `bear put spread`;
+- `covered call`;
+- `cash-secured put`;
+- debit spread;
+- credit spread.
+
+Практика:
+
+- сравнить `long call` и `bull call spread`;
+- посчитать `max loss / max profit`;
+- объяснить, что покупается и что продается в каждом leg.
+
+### 7. Volatility strategies
+
+Зачем: понять стратегии, где ставка делается на движение, диапазон или время.
+
+Темы:
+
+- `straddle`;
+- `strangle`;
+- `iron condor`;
+- `butterfly`;
+- `calendar spread`;
+- `diagonal spread`.
+
+Практика:
+
+- выбрать стратегию для trend, range, event;
+- объяснить, как `theta` и `vega` помогают или мешают.
+
+### 8. Crypto options
+
+Зачем: увидеть, чем BTC/ETH options отличаются от equity/index options.
+
+Темы:
+
+- рынок 24/7;
+- BTC и ETH как главные ликвидные underlyings;
+- `funding`;
+- `open interest`;
+- liquidation levels;
+- perp basis;
+- settlement;
+- platform risk;
+- stablecoin risk.
+
+Практика:
+
+- сравнить BTC option chain и SPY option chain;
+- найти, где spread шире;
+- объяснить дополнительный platform risk.
+
+### 9. Risk system
+
+Зачем: перейти от отдельных сделок к процессу.
+
+Темы:
+
+- trading plan;
+- trade journal;
+- scenario analysis;
+- `position sizing`;
+- `expectancy`;
+- `drawdown`;
+- `risk of ruin`;
+- process error vs outcome error.
+
+Практика:
+
+- заполнить journal entry;
+- найти повторяющуюся ошибку;
+- определить, можно ли увеличивать размер позиции.
+
+## Маршрут по времени
+
+| Период | Фокус | Результат |
+| --- | --- | --- |
+| Недели 1-2 | Market basics + option contract | Понимаешь, что такое call/put и как читать базовые параметры |
+| Недели 3-4 | Breakeven + payoff | Умеешь считать результат на expiry |
+| Месяц 2 | Greeks | Понимаешь, почему option price меняется |
+| Месяц 3 | Volatility | Видишь IV, IV crush и event risk |
+| Месяц 4 | Spreads | Ограничиваешь риск через конструкции |
+| Месяц 5 | Volatility strategies | Разбираешь рынок через режимы |
+| Месяц 6 | Crypto options | Понимаешь crypto-specific risks |
+| Месяц 7-9 | Risk system | Ведешь журнал, делаешь review, работаешь со статистикой |

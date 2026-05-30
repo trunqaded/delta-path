@@ -278,6 +278,46 @@ h2 {
   background: rgba(31, 94, 255, 0.08);
 }
 
+.doc-main table {
+  width: 100%;
+  margin: 22px 0 30px;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.doc-main th,
+.doc-main td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc-main th {
+  color: var(--text);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.doc-main td {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.doc-main th:last-child,
+.doc-main td:last-child {
+  border-right: 0;
+}
+
+.doc-main tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .home-main .lead {
   margin-bottom: 34px;
 }
