@@ -38,96 +38,102 @@
           <span>Slug: market-basics</span>
         </div>
 
-        <h2>Главная идея</h2>
+        <h2>Цель урока</h2>
         <div class="callout">
-          <p>Перед options нужно понять, что вообще происходит на бирже. Options - это производные от цены, времени и volatility.</p>
-          <p>Если база <code>spot</code>, <code>futures</code>, <code>margin</code>, <code>liquidity</code>, <code>bid/ask spread</code> и order flow плавает, options превращаются в казино с красивыми греческими буквами на входе.</p>
+          <p>После этого урока ты должен уметь смотреть на рынок не как на одну линию цены, а как на механизм: кто покупает, кто продает, где реальная цена входа, почему позиция может стать опасной и почему options нельзя изучать до базы.</p>
+          <p>Главный вывод, к которому идем: <strong>options являются производными от рынка, поэтому сначала нужно понимать сам рынок</strong>.</p>
         </div>
 
-        <h2>English terms</h2>
-        <table>
-          <thead><tr><th>Term</th><th>Русское значение</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
-          <tbody>
-            <tr><td><code>spot market</code></td><td>спот-рынок</td><td>рынок немедленной покупки/продажи</td><td>базовая цена для derivatives</td></tr>
-            <tr><td><code>long</code></td><td>лонг</td><td>позиция на рост</td><td>основная направленная ставка вверх</td></tr>
-            <tr><td><code>short</code></td><td>шорт</td><td>позиция на падение</td><td>ставка вниз или hedge</td></tr>
-            <tr><td><code>margin</code></td><td>маржа</td><td>заемное обеспечение</td><td>увеличивает возможности и риск</td></tr>
-            <tr><td><code>leverage</code></td><td>плечо</td><td>множитель позиции</td><td>ускоряет прибыль и убыток</td></tr>
-            <tr><td><code>liquidity</code></td><td>ликвидность</td><td>легкость входа и выхода</td><td>плохая liquidity портит сделку</td></tr>
-            <tr><td><code>order book</code></td><td>стакан заявок</td><td>список bids и asks</td><td>показывает, где есть реальные заявки</td></tr>
-            <tr><td><code>bid / ask / spread</code></td><td>покупка / продажа / спред</td><td>лучшие цены и разница между ними</td><td>скрытая стоимость торговли</td></tr>
-            <tr><td><code>market order</code></td><td>рыночный ордер</td><td>исполнение сразу по рынку</td><td>опасен при wide spread</td></tr>
-            <tr><td><code>limit order</code></td><td>лимитный ордер</td><td>исполнение по заданной цене</td><td>контролирует цену, но может не исполниться</td></tr>
-            <tr><td><code>perpetual futures</code></td><td>бессрочный фьючерс</td><td>futures без обычной expiry</td><td>важны funding и liquidation</td></tr>
-            <tr><td><code>funding rate</code></td><td>ставка funding</td><td>платеж между long и short</td><td>стоимость удержания perp position</td></tr>
-          </tbody>
-        </table>
-        <h2>Разбор понятий</h2>
-        <div class="term-grid">
-          <details>
-            <summary><code>spot market</code></summary>
-            <p>Спот - это рынок, где ты покупаешь или продаешь сам актив. Купил BTC на spot - у тебя BTC, а не контракт на будущую цену. Это базовая точка отсчета для futures и options.</p>
-          </details>
-          <details>
-            <summary><code>long</code> / <code>short</code></summary>
-            <p><code>Long</code> зарабатывает на росте, <code>short</code> - на падении. Важно не путать направление идеи с контролем риска: правильный прогноз без лимита убытка все равно может закончиться плохо.</p>
-          </details>
-          <details>
-            <summary><code>margin</code> / <code>leverage</code></summary>
-            <p><code>Margin</code> - обеспечение для позиции, <code>leverage</code> - множитель экспозиции. Плечо делает движение рынка сильнее для твоего счета: и прибыль, и ошибку.</p>
-          </details>
-          <details>
-            <summary><code>liquidity</code></summary>
-            <p>Ликвидность отвечает на вопрос: можно ли войти и выйти нормальным размером без большой потери на цене. Неликвидный рынок может наказать еще до того, как твой прогноз успеет стать правым или неправым.</p>
-          </details>
-          <details>
-            <summary><code>order book</code></summary>
-            <p>Стакан показывает заявки покупателей и продавцов. Он помогает увидеть, где есть интерес, но не является обещанием: заявки могут исчезать, особенно на быстрых движениях.</p>
-          </details>
-          <details>
-            <summary><code>bid / ask / spread</code></summary>
-            <p><code>Bid</code> - лучшая цена покупки, <code>ask</code> - лучшая цена продажи, <code>spread</code> - разница между ними. Чем шире spread, тем дороже просто войти и выйти.</p>
-          </details>
-          <details>
-            <summary><code>market order</code> / <code>limit order</code></summary>
-            <p><code>Market order</code> просит исполнить сейчас, цена может быть хуже ожидаемой. <code>Limit order</code> задает цену, но может не исполниться. Скорость против контроля - классический обмен.</p>
-          </details>
-          <details>
-            <summary><code>perpetual futures</code> / <code>funding rate</code></summary>
-            <p><code>Perpetual futures</code> - бессрочный фьючерс без обычной экспирации. <code>Funding rate</code> удерживает цену perp около spot и регулярно перераспределяет платежи между long и short.</p>
-          </details>
+        <div class="lesson-road" aria-label="Логика урока">
+          <div><strong>1. Цена</strong><span>Что значит купить актив на spot.</span></div>
+          <div><strong>2. Исполнение</strong><span>Почему bid/ask важнее красивой last price.</span></div>
+          <div><strong>3. Риск</strong><span>Как leverage и funding меняют сделку.</span></div>
+          <div><strong>4. Options</strong><span>Почему без этой базы дальше будет шум.</span></div>
         </div>
 
-        <h2>Spot, long и short</h2>
-        <ul class="soft-list">
-          <li><strong>Spot long:</strong> покупаешь актив и держишь. Главный риск - актив может упасть.</li>
-          <li><strong>Short:</strong> ставка на падение через заем или derivatives. Главный риск - актив может резко вырасти.</li>
-          <li><strong>Margin long/short:</strong> используешь заемные средства. Главный риск - liquidation.</li>
-        </ul>
+        <h2>Не график, а механизм</h2>
+        <p>Новичок обычно видит график BTC или SPY и думает: "цена сейчас вот такая". Но сделка происходит не с графиком. Сделка происходит с рынком, где есть покупатели, продавцы, заявки, объем, spread и риск исполнения.</p>
+        <div class="market-stack" aria-label="Слои рынка">
+          <div class="market-layer"><strong>Last price</strong><span>Последняя сделка. Это история, а не гарантия твоей цены.</span></div>
+          <div class="market-layer"><strong>Bid / ask</strong><span>Где рынок готов купить у тебя и продать тебе прямо сейчас.</span></div>
+          <div class="market-layer"><strong>Liquidity</strong><span>Сколько объема можно провести без сильного ухудшения цены.</span></div>
+          <div class="market-layer"><strong>Risk</strong><span>Что будет, если цена, volatility или плечо пойдут против тебя.</span></div>
+        </div>
+        <p>Options добавят к этому еще <code>strike</code>, <code>premium</code>, <code>expiry</code>, <code>delta</code>, <code>theta</code>, <code>vega</code>. Поэтому сначала учимся видеть базовый механизм.</p>
 
-        <h2>Liquidity, bid/ask и spread</h2>
+        <h2>Spot: самая простая версия рынка</h2>
+        <p><code>Spot market</code> - это рынок, где ты покупаешь или продаешь сам актив. Купил 1 ETH по $4,000 на spot - теперь твой результат зависит от цены ETH.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><strong>Long</strong><span>Ты купил актив и хочешь, чтобы он вырос. ETH $4,000 -> $4,400 дает прибыль до комиссий.</span></div>
+          <div class="concept-card"><strong>Short</strong><span>Ты ставишь на падение. Если актив резко растет, риск может быть намного неприятнее, чем кажется.</span></div>
+        </div>
+        <p>Пока все просто: цена выросла - long счастлив, цена упала - long грустит. Но даже здесь есть нюанс: войти и выйти можно не по абстрактной "цене на графике", а по реальным заявкам.</p>
+
+        <h2>Bid, ask и spread: первая невидимая цена</h2>
+        <p>Представь, что рынок SPY выглядит так:</p>
+        <div class="order-book-demo" aria-label="Пример стакана заявок">
+          <div class="book-side">
+            <strong>Bid: покупатели</strong>
+            <div><span>$499.99</span><span>800 shares</span></div>
+            <div><span>$500.00</span><span>1,200 shares</span></div>
+          </div>
+          <div class="spread-badge">Spread<br />$0.01</div>
+          <div class="book-side">
+            <strong>Ask: продавцы</strong>
+            <div><span>$500.01</span><span>900 shares</span></div>
+            <div><span>$500.02</span><span>1,100 shares</span></div>
+          </div>
+        </div>
+        <p><code>Bid</code> - цена, по которой рынок готов купить у тебя. <code>Ask</code> - цена, по которой рынок готов продать тебе. <code>Spread</code> - разница между ними. На ликвидном рынке она маленькая, на неликвидном может сразу съесть смысл сделки.</p>
+
         <table>
-          <thead><tr><th>Актив</th><th>Bid</th><th>Ask</th><th>Spread</th></tr></thead>
+          <thead><tr><th>Рынок</th><th>Bid</th><th>Ask</th><th>Что почувствует новичок</th></tr></thead>
           <tbody>
-            <tr><td>SPY</td><td>$500.00</td><td>$500.01</td><td>$0.01</td></tr>
-            <tr><td>Неликвидный altcoin</td><td>$1.00</td><td>$1.08</td><td>$0.08</td></tr>
+            <tr><td>SPY</td><td>$500.00</td><td>$500.01</td><td>вход почти без потери на spread</td></tr>
+            <tr><td>Неликвидный altcoin</td><td>$1.00</td><td>$1.08</td><td>купил - и сразу как будто минус 7.4%</td></tr>
           </tbody>
         </table>
-        <p>На SPY вход и выход почти не теряют стоимость на spread. На altcoin ты можешь начать с заметного минуса просто потому, что купил по ask и продашь по bid.</p>
+        <p>Вот первый практический вывод: <strong>перед идеей "куда пойдет цена" нужно спросить "по какой цене я реально могу войти и выйти"</strong>.</p>
+
+        <h2>Market order и limit order</h2>
+        <p><code>Market order</code> говорит рынку: "исполни меня сейчас". Это удобно, но на широком spread или тонком стакане может дать плохую цену. <code>Limit order</code> говорит: "исполни меня по этой цене или лучше". Это контролирует цену, но заявка может не исполниться.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><strong>Market order</strong><span>Скорость важнее цены. Нормально для очень ликвидных рынков, опаснее на тонких.</span></div>
+          <div class="concept-card"><strong>Limit order</strong><span>Цена важнее скорости. Хорош для контроля входа, но рынок может уйти без тебя.</span></div>
+        </div>
+
+        <h2>Leverage: когда движение становится громче</h2>
+        <p><code>Leverage</code> увеличивает размер позиции относительно твоего капитала. Это не кнопка "больше прибыли"; это регулятор громкости для результата.</p>
+        <div class="number-grid">
+          <div class="number-card"><b>$2,000</b><strong>Свой капитал</strong><span>сколько реально лежит под позицией</span></div>
+          <div class="number-card"><b>5x</b><strong>Leverage</strong><span>множитель экспозиции</span></div>
+          <div class="number-card"><b>$10,000</b><strong>Позиция</strong><span>рынок двигает именно этот размер</span></div>
+        </div>
+        <p>Если позиция $10,000 идет против тебя на 10%, убыток примерно $1,000. Это половина твоего капитала в позиции. Если рынок идет против тебя сильнее, появляется <code>liquidation risk</code>. Тут рынок уже не спорит, а просто закрывает дверь.</p>
 
         <h2>Futures, perpetual futures и funding</h2>
+        <p><code>Futures</code> - контракт на цену актива в будущем. У обычного futures есть <code>expiry</code>. В crypto часто используют <code>perpetual futures</code>: у них нет обычной даты истечения, зато есть <code>funding rate</code>.</p>
         <table>
-          <thead><tr><th>Инструмент</th><th>Есть expiry?</th><th>Что важно</th></tr></thead>
+          <thead><tr><th>Инструмент</th><th>Что ты держишь</th><th>Главный риск новичка</th></tr></thead>
           <tbody>
-            <tr><td>Spot</td><td>Нет</td><td>владеешь активом</td></tr>
-            <tr><td>Futures</td><td>Да</td><td>expiry, basis, margin</td></tr>
-            <tr><td>Perpetual futures</td><td>Нет</td><td>funding, liquidation, leverage</td></tr>
-            <tr><td>Options</td><td>Да</td><td>strike, premium, Greeks, volatility</td></tr>
+            <tr><td>Spot</td><td>сам актив</td><td>цена актива падает</td></tr>
+            <tr><td>Futures</td><td>контракт с expiry</td><td>margin, basis, expiry</td></tr>
+            <tr><td>Perpetual futures</td><td>контракт без обычной expiry</td><td>funding, leverage, liquidation</td></tr>
+            <tr><td>Options</td><td>право купить/продать</td><td>premium, time decay, volatility</td></tr>
           </tbody>
         </table>
+        <p>Если funding положительный, обычно long платят short. Это значит, что удержание позиции имеет стоимость. На spot ты можешь просто держать актив. В perps позиция живет в другой физике.</p>
+
+        <h2>Volatility: почему options ждут за углом</h2>
+        <p><code>Volatility</code> - изменчивость цены. BTC и ETH могут пройти за день столько, сколько спокойный ETF проходит за неделю. TSLA иногда ведет себя как рынок с кофеином. SPY и QQQ обычно ликвиднее, но в кризис тоже умеют напоминать, что "индекс" не значит "подушка".</p>
+        <p>Для options volatility станет центральной темой: premium зависит не только от текущей цены, но и от ожидаемого будущего движения. Поэтому первый урок не про зазубривание слов. Он про то, чтобы увидеть три вещи: <strong>цена не одна, исполнение не бесплатно, риск надо считать до входа</strong>.</p>
+
+        <div class="bridge-note">
+          <p><strong>Мост к уроку 2:</strong> option будет производным от underlying price, времени и volatility. Если ты не видишь spread, liquidity, leverage и funding, option price будет казаться магией. А магия на рынке обычно выставляет счет.</p>
+        </div>
 
         <h2>Практика: наблюдение без торговли</h2>
-        <p>Открой графики BTC, ETH, SPY, QQQ, AAPL, TSLA. Не торгуй. Просто наблюдай, как двигается цена, где liquidity, как меняется volatility.</p>
+        <p>Открой графики BTC, ETH, SPY, QQQ, AAPL, TSLA. Не торгуй. Цель - увидеть разные типы движения и разные условия входа.</p>
         <p>
           Для наблюдения можно открыть:
           <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" rel="noreferrer">BTC на CoinGecko</a>,
@@ -147,6 +153,46 @@
             <tr><td>Есть ли новости?</td><td>earnings, macro, crypto events</td></tr>
           </tbody>
         </table>
+        <details>
+          <summary>Как понять, что практика выполнена</summary>
+          <p>Ты можешь своими словами объяснить, какой актив выглядит более резким, где вероятно лучше liquidity, почему market order на тонком рынке опаснее и какой риск появляется при leverage.</p>
+        </details>
+
+        <h2>Мини-словарь урока</h2>
+        <div class="term-grid">
+          <details>
+            <summary><code>spot market</code></summary>
+            <p>Рынок покупки и продажи самого актива. Это базовая цена, от которой дальше строятся futures и options.</p>
+          </details>
+          <details>
+            <summary><code>long</code> / <code>short</code></summary>
+            <p><code>Long</code> зарабатывает на росте, <code>short</code> - на падении. Направление идеи не заменяет контроль риска.</p>
+          </details>
+          <details>
+            <summary><code>liquidity</code></summary>
+            <p>Способность рынка принять твой размер без сильного ухудшения цены. Плохая liquidity превращает хорошую идею в плохую сделку.</p>
+          </details>
+          <details>
+            <summary><code>bid / ask / spread</code></summary>
+            <p><code>Bid</code> - лучшая цена покупки, <code>ask</code> - лучшая цена продажи, <code>spread</code> - расстояние между ними.</p>
+          </details>
+          <details>
+            <summary><code>market order</code> / <code>limit order</code></summary>
+            <p><code>Market order</code> выбирает скорость, <code>limit order</code> выбирает контроль цены.</p>
+          </details>
+          <details>
+            <summary><code>margin</code> / <code>leverage</code></summary>
+            <p><code>Margin</code> - обеспечение позиции, <code>leverage</code> - множитель экспозиции. Вместе они усиливают и прибыль, и ошибку.</p>
+          </details>
+          <details>
+            <summary><code>perpetual futures</code> / <code>funding rate</code></summary>
+            <p>Perp - фьючерс без обычной expiry. Funding - платеж между long и short, который влияет на стоимость удержания.</p>
+          </details>
+          <details>
+            <summary><code>volatility</code> / <code>risk per trade</code></summary>
+            <p><code>Volatility</code> показывает изменчивость цены. <code>Risk per trade</code> отвечает, сколько ты готов потерять, если сценарий не сработает.</p>
+          </details>
+        </div>
 
         <h2>Мини-тест</h2>
         <form class="quiz" data-quiz>
@@ -188,12 +234,12 @@
 
         <h2>Короткий вывод</h2>
         <ul>
-          <li>Options нельзя учить в отрыве от базового рынка.</li>
-          <li>Spot, futures, perpetual futures и options имеют разные риски.</li>
-          <li>Bid/ask spread - реальная стоимость торговли.</li>
-          <li>Liquidity важнее, чем кажется новичку.</li>
-          <li>Leverage ускоряет не только прибыль, но и ошибку.</li>
-          <li>На первом этапе практика - наблюдать, а не торговать.</li>
+          <li>Рынок - это не одна цена на графике, а механизм заявок, liquidity и исполнения.</li>
+          <li><code>Bid/ask spread</code> - первая реальная стоимость сделки.</li>
+          <li><code>Market order</code> покупает скорость, <code>limit order</code> покупает контроль цены.</li>
+          <li><code>Leverage</code> увеличивает не только прибыль, но и скорость ошибки.</li>
+          <li><code>Funding</code> показывает, что perps не равны spot: удержание позиции может стоить денег.</li>
+          <li>Options нельзя учить в отрыве от этой базы, потому что они зависят от underlying price, времени и volatility.</li>
         </ul>
         <nav class="lesson-footer" aria-label="Навигация урока">
           <a href="../start-here.html">Назад: начать здесь</a>

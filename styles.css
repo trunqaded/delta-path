@@ -467,6 +467,152 @@ h2 {
   margin-bottom: 14px;
 }
 
+.lesson-road {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0 34px;
+}
+
+.lesson-road div,
+.concept-card,
+.number-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.lesson-road div {
+  padding: 16px;
+}
+
+.lesson-road strong,
+.concept-card strong,
+.number-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.lesson-road span,
+.concept-card span,
+.number-card span {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 34px;
+}
+
+.concept-card {
+  padding: 20px;
+}
+
+.market-stack {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin: 20px 0 34px;
+}
+
+.market-layer {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.market-layer strong {
+  color: var(--text);
+}
+
+.market-layer span {
+  color: var(--muted);
+}
+
+.order-book-demo {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: stretch;
+  max-width: 760px;
+  margin: 20px 0 34px;
+}
+
+.book-side {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.book-side strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.book-side div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.spread-badge {
+  display: grid;
+  place-items: center;
+  min-width: 110px;
+  padding: 18px;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 900;
+  text-align: center;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 34px;
+}
+
+.number-card {
+  padding: 18px;
+}
+
+.number-card b {
+  display: block;
+  color: var(--blue);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.bridge-note {
+  max-width: 760px;
+  margin: 28px 0 34px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+
+.bridge-note p {
+  margin-bottom: 0;
+}
+
 .quiz {
   display: grid;
   gap: 16px;
@@ -679,6 +825,17 @@ h2 {
   }
 
   .doc-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-road,
+  .concept-grid,
+  .number-grid,
+  .order-book-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .market-layer {
     grid-template-columns: 1fr;
   }
 
