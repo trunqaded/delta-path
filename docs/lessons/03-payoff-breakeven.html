@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payoff и breakeven - Delta Path</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body data-page-title="Урок 3. Payoff и breakeven" data-lesson-id="lesson-3" data-lesson-order="3">
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
+        <nav>
+          <section class="doc-nav-section">
+            <h2>Маршруты</h2>
+            <a href="../paths/from-zero.html">С нуля</a>
+            <a href="../paths/fast-track.html">Сразу главное</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Курс</h2>
+            <a href="../start-here.html">Начать здесь</a>
+            <a href="../roadmap.html">Карта курса</a>
+            <a href="../course-blueprint.html">Архитектура курса</a>
+            <a href="01-market-basics.html">Урок 1. Основа рынка</a>
+            <a href="02-what-is-an-option.html">Урок 2. Что такое option</a>
+            <a href="03-payoff-breakeven.html" aria-current="page">Урок 3. Payoff и breakeven</a>
+            <a href="04-greeks.html">Урок 4. Greeks</a>
+            <a href="05-volatility.html">Урок 5. Volatility</a>
+            <a href="../concepts/glossary.html">Словарь</a>
+            <a href="../practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+      <main class="doc-main">
+        <p class="lesson-kicker">Урок 3</p>
+        <h1>Payoff и breakeven</h1>
+        <div class="lesson-meta" aria-label="Параметры урока">
+          <span>20-30 минут</span>
+          <span>Уровень 3</span>
+          <span>Маршрут: оба</span>
+          <span>Slug: payoff-breakeven</span>
+        </div>
+
+        <h2>Цель урока</h2>
+        <div class="callout">
+          <p>Научиться смотреть на option не как на "ставку вверх/вниз", а как на набор сценариев. <code>Payoff</code> показывает, что будет с P/L при разных ценах underlying на <code>expiry</code>.</p>
+          <p>Главный вывод: правильное направление не гарантирует прибыль. Цена должна пройти через <code>breakeven</code>.</p>
+        </div>
+
+        <h2>Long call как картинка</h2>
+        <p>BTC стоит $100,000. Ты покупаешь <code>long call</code>: strike $110,000, premium $3,000. Значит, на expiry прибыль начинается только выше $113,000.</p>
+        <div class="visual-panel" aria-label="Payoff diagram for long call">
+          <svg viewBox="0 0 760 360" role="img">
+            <title>Long call payoff</title>
+            <line class="chart-grid" x1="90" y1="70" x2="90" y2="285" />
+            <line class="chart-grid" x1="250" y1="70" x2="250" y2="285" />
+            <line class="chart-grid" x1="410" y1="70" x2="410" y2="285" />
+            <line class="chart-grid" x1="570" y1="70" x2="570" y2="285" />
+            <line class="chart-axis" x1="70" y1="230" x2="700" y2="230" />
+            <line class="chart-axis" x1="90" y1="55" x2="90" y2="300" />
+            <polyline class="chart-loss" points="90,260 410,260" />
+            <polyline class="chart-profit" points="410,260 500,230 660,105" />
+            <line class="chart-line" x1="410" y1="70" x2="410" y2="285" stroke-dasharray="8 8" />
+            <line class="chart-line" x1="500" y1="70" x2="500" y2="285" stroke-dasharray="8 8" />
+            <text class="chart-title" x="90" y="34">Long call: max loss ограничен premium</text>
+            <text class="chart-label" x="373" y="315">Strike $110k</text>
+            <text class="chart-label" x="462" y="315">Breakeven $113k</text>
+            <text class="chart-label" x="102" y="252">-$3k premium</text>
+            <text class="chart-label" x="610" y="102">profit grows</text>
+          </svg>
+        </div>
+
+        <h2>Формула без мистики</h2>
+        <div class="formula-card">
+          <p><strong>Long call intrinsic value:</strong> <code>max(underlying price - strike, 0)</code></p>
+          <p><strong>P/L:</strong> <code>intrinsic value - premium</code></p>
+          <p><strong>Breakeven:</strong> <code>strike + premium</code></p>
+        </div>
+
+        <h2>Таблица сценариев</h2>
+        <table>
+          <thead><tr><th>BTC на expiry</th><th>Intrinsic value</th><th>P/L</th><th>Вывод</th></tr></thead>
+          <tbody>
+            <tr><td>$105,000</td><td>$0</td><td>-$3,000</td><td>call сгорел</td></tr>
+            <tr><td>$110,000</td><td>$0</td><td>-$3,000</td><td>на strike еще нет прибыли</td></tr>
+            <tr><td>$113,000</td><td>$3,000</td><td>$0</td><td>breakeven</td></tr>
+            <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td><td>прибыль после premium</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Long put зеркально</h2>
+        <p>Для <code>long put</code> прибыль появляется ниже breakeven. Если SPY = $500, put strike $480, premium $8, то breakeven = $472.</p>
+        <div class="visual-panel" aria-label="Payoff diagram for long put">
+          <svg viewBox="0 0 760 330" role="img">
+            <title>Long put payoff</title>
+            <line class="chart-axis" x1="70" y1="220" x2="700" y2="220" />
+            <line class="chart-axis" x1="90" y1="50" x2="90" y2="280" />
+            <polyline class="chart-profit" points="120,85 300,220" />
+            <polyline class="chart-loss" points="300,220 650,250" />
+            <line class="chart-line" x1="300" y1="65" x2="300" y2="275" stroke-dasharray="8 8" />
+            <line class="chart-line" x1="380" y1="65" x2="380" y2="275" stroke-dasharray="8 8" />
+            <text class="chart-title" x="90" y="34">Long put: прибыль при падении ниже breakeven</text>
+            <text class="chart-label" x="255" y="305">Breakeven $472</text>
+            <text class="chart-label" x="350" y="305">Strike $480</text>
+            <text class="chart-label" x="560" y="246">-$8 premium</text>
+          </svg>
+        </div>
+
+        <h2>Что теперь проверять до входа</h2>
+        <div class="scenario-strip">
+          <div><strong>Где max loss?</strong><span>Для long option обычно premium.</span></div>
+          <div><strong>Где breakeven?</strong><span>Цена, где P/L на expiry становится нулевым.</span></div>
+          <div><strong>Где profit zone?</strong><span>Сценарии, где payoff реально покрывает premium.</span></div>
+        </div>
+
+        <h2>Практика</h2>
+        <p>ETH = $4,000. Long call strike $4,300, premium $120. Посчитай breakeven, max loss и P/L при ETH = $4,200, $4,420, $4,700.</p>
+        <details>
+          <summary>Показать решение</summary>
+          <p><code>Breakeven = $4,300 + $120 = $4,420</code>. Max loss = $120. При $4,200 P/L = -$120. При $4,420 P/L = $0. При $4,700 intrinsic value = $400, P/L = +$280.</p>
+        </details>
+
+        <h2>Мини-тест</h2>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="b">
+            <p>1. Для long call breakeven считается как...</p>
+            <label><input type="radio" name="q1" value="a" /> <code>strike - premium</code></label>
+            <label><input type="radio" name="q1" value="b" /> <code>strike + premium</code></label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>2. Max loss покупателя long option обычно равен...</p>
+            <label><input type="radio" name="q2" value="a" /> уплаченному premium</label>
+            <label><input type="radio" name="q2" value="b" /> всему underlying</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>3. Если underlying вырос, но не дошел до breakeven, long call...</p>
+            <label><input type="radio" name="q3" value="a" /> обязательно прибыльный</label>
+            <label><input type="radio" name="q3" value="b" /> может быть убыточным</label>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit">Проверить</button>
+            <span class="quiz-result" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <h2>Короткий вывод</h2>
+        <ul>
+          <li><code>Payoff</code> показывает P/L по сценариям на expiry.</li>
+          <li><code>Breakeven</code> важнее голого направления.</li>
+          <li>Long call имеет ограниченный max loss и растущий upside.</li>
+          <li>Long put имеет ограниченный max loss и зарабатывает на падении ниже breakeven.</li>
+        </ul>
+        <nav class="lesson-footer" aria-label="Навигация урока">
+          <a href="02-what-is-an-option.html">Назад: option</a>
+          <a href="04-greeks.html">Следующий урок: Greeks</a>
+        </nav>
+      </main>
+    </div>
+    <script src="../../scripts/quiz.js"></script>
+    <script src="../../scripts/progress.js"></script>
+  </body>
+</html>

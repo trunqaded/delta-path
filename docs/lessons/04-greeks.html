@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Greeks - Delta Path</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body data-page-title="Урок 4. Greeks" data-lesson-id="lesson-4" data-lesson-order="4">
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
+        <nav>
+          <section class="doc-nav-section">
+            <h2>Маршруты</h2>
+            <a href="../paths/from-zero.html">С нуля</a>
+            <a href="../paths/fast-track.html">Сразу главное</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Курс</h2>
+            <a href="../start-here.html">Начать здесь</a>
+            <a href="../roadmap.html">Карта курса</a>
+            <a href="../course-blueprint.html">Архитектура курса</a>
+            <a href="01-market-basics.html">Урок 1. Основа рынка</a>
+            <a href="02-what-is-an-option.html">Урок 2. Что такое option</a>
+            <a href="03-payoff-breakeven.html">Урок 3. Payoff и breakeven</a>
+            <a href="04-greeks.html" aria-current="page">Урок 4. Greeks</a>
+            <a href="05-volatility.html">Урок 5. Volatility</a>
+            <a href="../concepts/glossary.html">Словарь</a>
+            <a href="../practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+      <main class="doc-main">
+        <p class="lesson-kicker">Урок 4</p>
+        <h1>Greeks</h1>
+        <div class="lesson-meta" aria-label="Параметры урока">
+          <span>20-30 минут</span>
+          <span>Уровень 4</span>
+          <span>Маршрут: оба</span>
+          <span>Slug: greeks</span>
+        </div>
+
+        <h2>Цель урока</h2>
+        <div class="callout">
+          <p><code>Greeks</code> объясняют, почему option price меняется до expiry. Цена underlying может почти не двигаться, но option все равно дорожает или дешевеет из-за времени и volatility.</p>
+          <p>Главный вывод: option - это не одна ставка, а чувствительность к нескольким силам одновременно.</p>
+        </div>
+
+        <h2>Пять рычагов цены option</h2>
+        <div class="concept-grid">
+          <div class="concept-card"><strong>Delta</strong><span>Как option реагирует на движение underlying.</span></div>
+          <div class="concept-card"><strong>Gamma</strong><span>Как быстро меняется delta.</span></div>
+          <div class="concept-card"><strong>Theta</strong><span>Как время съедает premium.</span></div>
+          <div class="concept-card"><strong>Vega</strong><span>Как option реагирует на implied volatility.</span></div>
+          <div class="concept-card"><strong>Rho</strong><span>Как влияет процентная ставка. В начале курса вторично.</span></div>
+        </div>
+
+        <h2>Delta: первая чувствительность</h2>
+        <p>Если call имеет <code>delta 0.50</code>, то при росте underlying примерно на $1 option может вырасти примерно на $0.50. Это приближение, не обещание, потому что gamma двигает саму delta.</p>
+        <div class="visual-panel" aria-label="Delta curve">
+          <svg viewBox="0 0 760 330" role="img">
+            <title>Delta grows as option moves ITM</title>
+            <line class="chart-axis" x1="80" y1="260" x2="700" y2="260" />
+            <line class="chart-axis" x1="90" y1="45" x2="90" y2="275" />
+            <path class="chart-area" d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60 L680 260 L90 260 Z" />
+            <path class="chart-line" d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60" />
+            <text class="chart-title" x="90" y="30">Delta call: от почти 0 к почти 1</text>
+            <text class="chart-label" x="95" y="292">OTM</text>
+            <text class="chart-label" x="360" y="292">ATM</text>
+            <text class="chart-label" x="630" y="292">ITM</text>
+          </svg>
+        </div>
+
+        <h2>Theta: время работает каждый день</h2>
+        <p><code>Theta</code> показывает, как option теряет value с течением времени, если остальные факторы не помогают. Для покупателя long option theta обычно неприятна: календарь не спрашивает, готов ли ты.</p>
+        <div class="visual-panel" aria-label="Theta decay">
+          <svg viewBox="0 0 760 330" role="img">
+            <title>Theta decay accelerates near expiry</title>
+            <line class="chart-axis" x1="80" y1="260" x2="700" y2="260" />
+            <line class="chart-axis" x1="90" y1="45" x2="90" y2="275" />
+            <path class="chart-loss" d="M100 70 C250 85 410 125 530 190 C600 230 650 250 690 258" />
+            <text class="chart-title" x="90" y="30">Time value: ближе к expiry падение быстрее</text>
+            <text class="chart-label" x="98" y="292">30 дней</text>
+            <text class="chart-label" x="635" y="292">expiry</text>
+          </svg>
+        </div>
+
+        <h2>Vega: volatility может помочь или ударить</h2>
+        <p><code>Vega</code> показывает, как option price реагирует на изменение <code>implied volatility</code>. Если IV растет, long options часто дорожают. Если IV падает после события, может случиться <code>IV crush</code>.</p>
+        <table>
+          <thead><tr><th>Сила</th><th>Что происходит</th><th>Кому обычно лучше</th></tr></thead>
+          <tbody>
+            <tr><td>Underlying растет</td><td>call дорожает через delta</td><td>long call</td></tr>
+            <tr><td>Время проходит</td><td>premium тает через theta</td><td>seller, если все спокойно</td></tr>
+            <tr><td>IV растет</td><td>options дорожают через vega</td><td>long options</td></tr>
+            <tr><td>IV падает</td><td>options дешевеют</td><td>short options</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Практика</h2>
+        <p>У option цена $10, delta 0.40, theta -0.20, vega 0.15. За день underlying вырос на $2, IV выросла на 3 пункта. Очень грубо оцени изменение option price.</p>
+        <details>
+          <summary>Показать решение</summary>
+          <p>Delta effect: $2 × 0.40 = +$0.80. Theta: -$0.20. Vega: 3 × $0.15 = +$0.45. Примерная новая цена: $10 + $0.80 - $0.20 + $0.45 = $11.05.</p>
+        </details>
+
+        <h2>Мини-тест</h2>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="a">
+            <p>1. <code>Delta</code> показывает...</p>
+            <label><input type="radio" name="q1" value="a" /> чувствительность к underlying</label>
+            <label><input type="radio" name="q1" value="b" /> дату expiry</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>2. <code>Theta</code> чаще всего неприятна для...</p>
+            <label><input type="radio" name="q2" value="a" /> владельца spot</label>
+            <label><input type="radio" name="q2" value="b" /> покупателя long option</label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>3. <code>Vega</code> связана с...</p>
+            <label><input type="radio" name="q3" value="a" /> implied volatility</label>
+            <label><input type="radio" name="q3" value="b" /> bid/ask spread</label>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit">Проверить</button>
+            <span class="quiz-result" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <h2>Короткий вывод</h2>
+        <ul>
+          <li><code>Delta</code> связывает option с движением underlying.</li>
+          <li><code>Theta</code> напоминает, что время стоит денег.</li>
+          <li><code>Vega</code> делает volatility самостоятельной силой.</li>
+          <li>Greeks нужно читать вместе, а не как отдельные кнопки.</li>
+        </ul>
+        <nav class="lesson-footer" aria-label="Навигация урока">
+          <a href="03-payoff-breakeven.html">Назад: payoff</a>
+          <a href="05-volatility.html">Следующий урок: volatility</a>
+        </nav>
+      </main>
+    </div>
+    <script src="../../scripts/quiz.js"></script>
+    <script src="../../scripts/progress.js"></script>
+  </body>
+</html>

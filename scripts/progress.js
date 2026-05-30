@@ -11,6 +11,24 @@ const lessons = [
     title: "Урок 2. Что такое option",
     href: "docs/lessons/02-what-is-an-option.html",
   },
+  {
+    id: "lesson-3",
+    order: 3,
+    title: "Урок 3. Payoff и breakeven",
+    href: "docs/lessons/03-payoff-breakeven.html",
+  },
+  {
+    id: "lesson-4",
+    order: 4,
+    title: "Урок 4. Greeks",
+    href: "docs/lessons/04-greeks.html",
+  },
+  {
+    id: "lesson-5",
+    order: 5,
+    title: "Урок 5. Volatility",
+    href: "docs/lessons/05-volatility.html",
+  },
 ];
 
 const storageKey = "deltaPathProgress";

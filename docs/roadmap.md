@@ -7,6 +7,9 @@
 1. [Начать здесь](start-here.md) - понять, как устроен курс.
 2. [Урок 1: Основа рынка](lessons/01-market-basics.md) - собрать базу рынка без options.
 3. [Урок 2: Что такое option](lessons/02-what-is-an-option.md) - понять option как контракт.
+4. [Урок 3: Payoff и breakeven](lessons/03-payoff-breakeven.md) - считать сценарии прибыли и убытка.
+5. [Урок 4: Greeks](lessons/04-greeks.md) - понять чувствительности option price.
+6. [Урок 5: Volatility](lessons/05-volatility.md) - отличать движение цены от ожидания движения.
 
 ## Уровни курса
 
