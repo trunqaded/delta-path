@@ -10,6 +10,10 @@
 4. [Урок 3: Payoff и breakeven](lessons/03-payoff-breakeven.md) - считать сценарии прибыли и убытка.
 5. [Урок 4: Greeks](lessons/04-greeks.md) - понять чувствительности option price.
 6. [Урок 5: Volatility](lessons/05-volatility.md) - отличать движение цены от ожидания движения.
+7. [Урок 6: Базовые стратегии](lessons/06-basic-strategies.md) - собирать defined-risk конструкции.
+8. [Урок 7: Volatility strategies](lessons/07-volatility-strategies.md) - выбирать стратегию под режим рынка.
+9. [Урок 8: Crypto options](lessons/08-crypto-options.md) - учитывать crypto-specific risks.
+10. [Урок 9: Risk system](lessons/09-risk-system.md) - превратить сделки в процесс.
 
 ## Уровни курса
 

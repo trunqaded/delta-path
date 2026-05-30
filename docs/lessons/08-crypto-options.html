@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Crypto options - Delta Path</title><link rel="stylesheet" href="../../styles.css" /></head>
+  <body data-page-title="Урок 8. Crypto options" data-lesson-id="lesson-8" data-lesson-order="8">
+    <div class="doc-layout">
+      <aside class="doc-sidebar"><a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a><nav><section class="doc-nav-section"><h2>Маршруты</h2><a href="../paths/from-zero.html">С нуля</a><a href="../paths/fast-track.html">Сразу главное</a></section><section class="doc-nav-section"><h2>Курс</h2><a href="../start-here.html">Начать здесь</a><a href="../roadmap.html">Карта курса</a><a href="../course-blueprint.html">Архитектура курса</a><a href="01-market-basics.html">Урок 1. Основа рынка</a><a href="02-what-is-an-option.html">Урок 2. Что такое option</a><a href="03-payoff-breakeven.html">Урок 3. Payoff и breakeven</a><a href="04-greeks.html">Урок 4. Greeks</a><a href="05-volatility.html">Урок 5. Volatility</a><a href="06-basic-strategies.html">Урок 6. Базовые стратегии</a><a href="07-volatility-strategies.html">Урок 7. Volatility strategies</a><a href="08-crypto-options.html" aria-current="page">Урок 8. Crypto options</a><a href="09-risk-system.html">Урок 9. Risk system</a><a href="../concepts/glossary.html">Словарь</a><a href="../practice/trade-journal-template.html">Журнал сделок</a></section></nav></aside>
+      <main class="doc-main">
+        <p class="lesson-kicker">Урок 8</p><h1>Crypto options</h1><div class="lesson-meta"><span>20-30 минут</span><span>Уровень 8</span><span>Маршрут: оба</span><span>Slug: crypto-options</span></div>
+        <h2>Цель урока</h2><div class="callout"><p>Понять, чем BTC/ETH options отличаются от equity/index options. В crypto рынок 24/7, рядом живут perps, funding, liquidation levels, stablecoin и platform risk.</p><p>Главный вывод: crypto options требуют не только options-механики, но и контроля инфраструктурного риска.</p></div>
+
+        <h2>Crypto market stack</h2>
+        <div class="market-stack"><div class="market-layer"><strong>Spot</strong><span>BTC/ETH как underlying и базовая цена.</span></div><div class="market-layer"><strong>Perps</strong><span>Funding, leverage, liquidations, basis.</span></div><div class="market-layer"><strong>Options</strong><span>Strike, expiry, IV, skew, open interest.</span></div><div class="market-layer"><strong>Platform</strong><span>Биржа, custody, settlement, stablecoin risk.</span></div></div>
+
+        <h2>Что смотреть в option chain</h2>
+        <table><thead><tr><th>Поле</th><th>Зачем</th><th>Красный флаг</th></tr></thead><tbody><tr><td><code>bid/ask spread</code></td><td>реальная цена входа/выхода</td><td>широкий spread</td></tr><tr><td><code>open interest</code></td><td>где есть активность</td><td>нулевой OI</td></tr><tr><td><code>IV</code></td><td>дорогая или дешевая volatility</td><td>IV без понятной причины</td></tr><tr><td><code>expiry</code></td><td>когда заканчивается право</td><td>слишком короткое время</td></tr><tr><td><code>settlement</code></td><td>как закрывается контракт</td><td>непонятные правила платформы</td></tr></tbody></table>
+
+        <h2>BTC options vs SPY options</h2>
+        <div class="scenario-strip"><div><strong>Время</strong><span>Crypto торгуется 24/7, equity options живут в режиме биржевых часов.</span></div><div><strong>Инфраструктура</strong><span>В crypto важны биржа, custody и stablecoin.</span></div><div><strong>Соседний рынок</strong><span>Perps и funding могут влиять на настроение и ликвидации.</span></div></div>
+
+        <h2>Практика</h2><p>Открой BTC и ETH на CoinGecko, затем найди любую option chain на платформе, которой доверяешь для наблюдения. Не торгуй. Выпиши: nearest expiry, ATM strike, bid/ask spread, IV, OI.</p><p class="source-links"><a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" rel="noreferrer">BTC на CoinGecko</a> · <a href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noreferrer">ETH на CoinGecko</a></p>
+        <details><summary>Как понять, что практика выполнена</summary><p>Ты можешь объяснить, где ликвидность лучше, какой spread кажется дорогим, что будет с позицией при резком move вне биржевых часов и какой platform risk ты принимаешь.</p></details>
+
+        <h2>Мини-тест</h2><form class="quiz" data-quiz><div class="quiz-question" data-answer="b"><p>1. Crypto options дополнительно требуют учитывать...</p><label><input type="radio" name="q1" value="a" /> только strike</label><label><input type="radio" name="q1" value="b" /> platform, settlement, funding/perps context</label></div><div class="quiz-question" data-answer="a"><p>2. Широкий bid/ask spread означает...</p><label><input type="radio" name="q2" value="a" /> дорогой вход/выход</label><label><input type="radio" name="q2" value="b" /> гарантированную прибыль</label></div><div class="quiz-question" data-answer="b"><p>3. 24/7 рынок значит, что risk...</p><label><input type="radio" name="q3" value="a" /> исчезает на выходные</label><label><input type="radio" name="q3" value="b" /> продолжает жить вне обычных часов</label></div><div class="quiz-actions"><button type="submit">Проверить</button><span class="quiz-result" aria-live="polite"></span></div></form>
+        <h2>Короткий вывод</h2><ul><li>BTC/ETH options нельзя смотреть отдельно от spot и perps.</li><li>Liquidity и spread важнее красивого payoff.</li><li>Platform risk - часть сделки, а не мелкий шрифт.</li></ul>
+        <nav class="lesson-footer"><a href="07-volatility-strategies.html">Назад: volatility strategies</a><a href="09-risk-system.html">Следующий урок: risk system</a></nav>
+      </main>
+    </div><script src="../../scripts/quiz.js"></script><script src="../../scripts/progress.js"></script>
+  </body>
+</html>

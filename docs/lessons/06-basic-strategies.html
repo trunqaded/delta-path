@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Базовые стратегии - Delta Path</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body data-page-title="Урок 6. Базовые стратегии" data-lesson-id="lesson-6" data-lesson-order="6">
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
+        <nav>
+          <section class="doc-nav-section"><h2>Маршруты</h2><a href="../paths/from-zero.html">С нуля</a><a href="../paths/fast-track.html">Сразу главное</a></section>
+          <section class="doc-nav-section">
+            <h2>Курс</h2>
+            <a href="../start-here.html">Начать здесь</a><a href="../roadmap.html">Карта курса</a><a href="../course-blueprint.html">Архитектура курса</a>
+            <a href="01-market-basics.html">Урок 1. Основа рынка</a><a href="02-what-is-an-option.html">Урок 2. Что такое option</a><a href="03-payoff-breakeven.html">Урок 3. Payoff и breakeven</a><a href="04-greeks.html">Урок 4. Greeks</a><a href="05-volatility.html">Урок 5. Volatility</a><a href="06-basic-strategies.html" aria-current="page">Урок 6. Базовые стратегии</a><a href="07-volatility-strategies.html">Урок 7. Volatility strategies</a><a href="08-crypto-options.html">Урок 8. Crypto options</a><a href="09-risk-system.html">Урок 9. Risk system</a>
+            <a href="../concepts/glossary.html">Словарь</a><a href="../practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+      <main class="doc-main">
+        <p class="lesson-kicker">Урок 6</p>
+        <h1>Базовые стратегии</h1>
+        <div class="lesson-meta"><span>20-30 минут</span><span>Уровень 6</span><span>Маршрут: оба</span><span>Slug: basic-strategies</span></div>
+
+        <h2>Цель урока</h2>
+        <div class="callout">
+          <p>Перейти от одиночных options к конструкциям. Стратегия - это не красивое название, а форма риска: где max loss, где max profit, где breakeven.</p>
+          <p>Главный вывод: spreads часто уменьшают стоимость входа и ограничивают риск, но одновременно ограничивают upside.</p>
+        </div>
+
+        <h2>Bull call spread</h2>
+        <p><code>Bull call spread</code>: купить call ниже и продать call выше. Ты платишь меньше, чем за один long call, но прибыль ограничена верхним strike.</p>
+        <div class="visual-panel">
+          <svg viewBox="0 0 760 350" role="img">
+            <title>Bull call spread payoff</title>
+            <line x1="80" y1="230" x2="700" y2="230" stroke="#9aa1ae" stroke-width="2" />
+            <line x1="90" y1="60" x2="90" y2="280" stroke="#9aa1ae" stroke-width="2" />
+            <polyline points="100,255 330,255 500,120 660,120" fill="none" stroke="#0c7c59" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <line x1="330" y1="75" x2="330" y2="275" stroke="#245cff" stroke-width="2" stroke-dasharray="8 8" />
+            <line x1="500" y1="75" x2="500" y2="275" stroke="#245cff" stroke-width="2" stroke-dasharray="8 8" />
+            <text x="90" y="36" fill="#17191f" font-size="18" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">Bull call spread: defined risk, capped profit</text>
+            <text x="330" y="306" text-anchor="middle" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">Buy call</text>
+            <text x="500" y="328" text-anchor="middle" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">Sell call</text>
+          </svg>
+        </div>
+
+        <h2>Стратегии в одну таблицу</h2>
+        <table>
+          <thead><tr><th>Strategy</th><th>Состав</th><th>Когда логична</th><th>Главный риск</th></tr></thead>
+          <tbody>
+            <tr><td><code>bull call spread</code></td><td>buy call + sell higher call</td><td>умеренный рост</td><td>ограниченный upside</td></tr>
+            <tr><td><code>bear put spread</code></td><td>buy put + sell lower put</td><td>умеренное падение</td><td>ограниченный downside profit</td></tr>
+            <tr><td><code>covered call</code></td><td>long stock + short call</td><td>боковик/умеренный рост</td><td>упущенный сильный рост</td></tr>
+            <tr><td><code>cash-secured put</code></td><td>short put + cash</td><td>готов купить актив ниже</td><td>падение underlying</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Debit spread vs credit spread</h2>
+        <div class="scenario-strip">
+          <div><strong>Debit spread</strong><span>Платишь за вход. Max loss обычно debit.</span></div>
+          <div><strong>Credit spread</strong><span>Получаешь premium. Риск - ширина strikes минус credit.</span></div>
+          <div><strong>Defined risk</strong><span>Оба края риска заранее видны. Это не делает сделку хорошей автоматически.</span></div>
+        </div>
+
+        <h2>Практика</h2>
+        <p>SPY = $500. Bull call spread: buy 500 call за $12, sell 520 call за $5. Найди debit, max loss, max profit.</p>
+        <details><summary>Показать решение</summary><p>Debit = $12 - $5 = $7. Max loss = $7. Width = $20. Max profit = $20 - $7 = $13. Breakeven = $500 + $7 = $507.</p></details>
+
+        <h2>Мини-тест</h2>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="a"><p>1. Bull call spread обычно...</p><label><input type="radio" name="q1" value="a" /> ограничивает риск и profit</label><label><input type="radio" name="q1" value="b" /> дает unlimited profit</label></div>
+          <div class="quiz-question" data-answer="b"><p>2. Covered call включает...</p><label><input type="radio" name="q2" value="a" /> short stock + long put</label><label><input type="radio" name="q2" value="b" /> long stock + short call</label></div>
+          <div class="quiz-question" data-answer="a"><p>3. Для debit spread max loss обычно...</p><label><input type="radio" name="q3" value="a" /> уплаченный debit</label><label><input type="radio" name="q3" value="b" /> unlimited</label></div>
+          <div class="quiz-actions"><button type="submit">Проверить</button><span class="quiz-result" aria-live="polite"></span></div>
+        </form>
+
+        <h2>Короткий вывод</h2>
+        <ul><li>Стратегия - это форма payoff, а не название.</li><li>Spreads меняют цену входа, max loss и max profit.</li><li>Defined risk лучше для обучения, но все равно требует сценарного мышления.</li></ul>
+        <nav class="lesson-footer"><a href="05-volatility.html">Назад: volatility</a><a href="07-volatility-strategies.html">Следующий урок: volatility strategies</a></nav>
+      </main>
+    </div>
+    <script src="../../scripts/quiz.js"></script><script src="../../scripts/progress.js"></script>
+  </body>
+</html>

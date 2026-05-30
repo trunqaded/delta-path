@@ -29,6 +29,30 @@ const lessons = [
     title: "Урок 5. Volatility",
     href: "docs/lessons/05-volatility.html",
   },
+  {
+    id: "lesson-6",
+    order: 6,
+    title: "Урок 6. Базовые стратегии",
+    href: "docs/lessons/06-basic-strategies.html",
+  },
+  {
+    id: "lesson-7",
+    order: 7,
+    title: "Урок 7. Volatility strategies",
+    href: "docs/lessons/07-volatility-strategies.html",
+  },
+  {
+    id: "lesson-8",
+    order: 8,
+    title: "Урок 8. Crypto options",
+    href: "docs/lessons/08-crypto-options.html",
+  },
+  {
+    id: "lesson-9",
+    order: 9,
+    title: "Урок 9. Risk system",
+    href: "docs/lessons/09-risk-system.html",
+  },
 ];
 
 const storageKey = "deltaPathProgress";
