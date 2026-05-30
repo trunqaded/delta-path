@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Что такое опцион - Delta Path</title>
+    <title>Что такое option - Delta Path</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
@@ -28,18 +28,118 @@
         </nav>
       </aside>
       <main class="doc-main">
-        <h1>Что такое опцион</h1>
-        <p>Опцион - это контракт, который дает право, но не обязанность, купить или продать актив по заранее заданной цене.</p>
+        <h1>Урок 1. Что такое option</h1>
+
+        <table>
+          <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
+          <tbody>
+            <tr><td>Slug</td><td><code>what-is-an-option</code></td></tr>
+            <tr><td>Время</td><td>20-30 минут</td></tr>
+            <tr><td>Уровень</td><td>Опцион как контракт</td></tr>
+            <tr><td>Маршрут</td><td>С нуля / Сразу главное</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Главная идея</h2>
+        <p><code>Option</code> - это контракт, который дает право, но не обязанность, купить или продать <code>underlying asset</code> по заранее заданной цене.</p>
+        <p>Option - это не просто ставка на рост или падение. Это право выбора, за которое покупатель платит <code>premium</code>.</p>
+
+        <h2>English terms</h2>
+        <table>
+          <thead><tr><th>Term</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
+          <tbody>
+            <tr><td><code>option</code></td><td>контракт с правом, но без обязанности</td><td>вся механика курса строится вокруг этого права</td></tr>
+            <tr><td><code>underlying asset</code></td><td>базовый актив: BTC, ETH, SPY, AAPL</td><td>option является производным от цены этого актива</td></tr>
+            <tr><td><code>call</code></td><td>право купить underlying</td><td>базовый bullish-инструмент</td></tr>
+            <tr><td><code>put</code></td><td>право продать underlying</td><td>bearish-инструмент или защита</td></tr>
+            <tr><td><code>strike</code></td><td>цена исполнения</td><td>точка, относительно которой считается payoff</td></tr>
+            <tr><td><code>premium</code></td><td>цена option</td><td>max loss покупателя long option</td></tr>
+            <tr><td><code>expiry</code></td><td>дата истечения</td><td>время ограничено, а theta не спит</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Простое объяснение</h2>
+        <p>BTC стоит $100,000. Ты хочешь получить право купить BTC через месяц по $110,000. За это право ты платишь $3,000.</p>
+        <p>Если BTC улетит к $130,000, право купить по $110,000 выглядит очень полезным. Если BTC останется ниже $110,000, option может <code>expire worthless</code>.</p>
+        <p>Покупатель option платит за возможность, а не за гарантию прибыли. Рынок такие подарки не раздает.</p>
+
         <h2>Два базовых типа</h2>
+        <table>
+          <thead><tr><th>Тип</th><th>Что дает</th><th>Простая логика</th></tr></thead>
+          <tbody>
+            <tr><td><code>Call</code></td><td>право купить underlying по strike</td><td>полезен, если актив достаточно вырос</td></tr>
+            <tr><td><code>Put</code></td><td>право продать underlying по strike</td><td>полезен, если актив достаточно упал</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Пример crypto: BTC call</h2>
+        <table>
+          <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+          <tbody>
+            <tr><td>Underlying</td><td>BTC</td></tr>
+            <tr><td>BTC price now</td><td>$100,000</td></tr>
+            <tr><td>Option type</td><td>Long Call</td></tr>
+            <tr><td>Strike</td><td>$110,000</td></tr>
+            <tr><td>Premium</td><td>$3,000</td></tr>
+            <tr><td>Expiry</td><td>30 дней</td></tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead><tr><th>BTC price на expiry</th><th>Intrinsic value</th><th>P/L покупателя</th></tr></thead>
+          <tbody>
+            <tr><td>$105,000</td><td>$0</td><td>-$3,000</td></tr>
+            <tr><td>$110,000</td><td>$0</td><td>-$3,000</td></tr>
+            <tr><td>$113,000</td><td>$3,000</td><td>$0</td></tr>
+            <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td></tr>
+            <tr><td>$130,000</td><td>$20,000</td><td>+$17,000</td></tr>
+          </tbody>
+        </table>
+        <p><code>Breakeven = strike + premium = $113,000</code>.</p>
+
+        <h2>Пример traditional: AAPL call</h2>
+        <table>
+          <thead><tr><th>AAPL price на expiry</th><th>Intrinsic value</th><th>P/L покупателя</th></tr></thead>
+          <tbody>
+            <tr><td>$205</td><td>$0</td><td>-$5</td></tr>
+            <tr><td>$210</td><td>$0</td><td>-$5</td></tr>
+            <tr><td>$215</td><td>$5</td><td>$0</td></tr>
+            <tr><td>$225</td><td>$15</td><td>+$10</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Что может пойти не так</h2>
         <ul>
-          <li><strong>Call</strong>: право купить актив.</li>
-          <li><strong>Put</strong>: право продать актив.</li>
+          <li><strong>Актив вырос, но option не дал прибыль.</strong> BTC может вырасти до $105,000, но call strike $110,000 останется worthless на expiry.</li>
+          <li><strong>Дешевый option кажется хорошим.</strong> Низкий premium часто означает низкую вероятность или дальний OTM strike.</li>
+          <li><strong>Expiry кажется далекой.</strong> Время всегда часть цены. Позже это станет темой <code>theta</code>.</li>
         </ul>
-        <h2>Пример на BTC</h2>
-        <p>BTC стоит $100,000. Call со страйком $110,000 дает право купить BTC по $110,000.</p>
-        <p>Если BTC вырастет до $130,000, call может сильно вырасти в цене. Если BTC останется ниже $110,000 к экспирации, этот call может сгореть.</p>
-        <h2>Мини-задача</h2>
-        <p>BTC = $100,000, call strike = $110,000, premium = $3,000. Где breakeven и какой максимальный убыток?</p>
+
+        <h2>Исторический пример</h2>
+        <p>Перед earnings, решениями ФРС или крупными crypto events options часто дорожают через <code>implied volatility</code>. После события может случиться <code>IV crush</code>: underlying идет в правильную сторону, но option дешевеет, потому что uncertainty исчезла.</p>
+
+        <h2>Практика</h2>
+        <p>ETH стоит $4,000. Ты покупаешь ETH call: strike $4,400, premium $150, expiry 21 день. Где breakeven, max loss, и что будет при ETH = $4,300 и $4,700?</p>
+        <p>SPY стоит $500. Ты покупаешь SPY put: strike $480, premium $8, expiry 30 дней. Где breakeven для put, max loss, и что будет при SPY = $490 и $460?</p>
+
+        <h2>Мини-тест</h2>
+        <ol>
+          <li><code>Call</code> дает право купить или продать underlying?</li>
+          <li><code>Put</code> дает право купить или продать underlying?</li>
+          <li>Покупатель option платит premium, funding или dividend?</li>
+          <li>Для long call breakeven: strike + premium или strike - premium?</li>
+          <li>Если option expires worthless, что теряет покупатель long option?</li>
+        </ol>
+        <p>Ответы: call = купить, put = продать, premium, strike + premium, premium.</p>
+
+        <h2>Короткий вывод</h2>
+        <ul>
+          <li><code>Option</code> дает право, но не обязанность.</li>
+          <li><code>Call</code> - право купить.</li>
+          <li><code>Put</code> - право продать.</li>
+          <li><code>Premium</code> - цена этого права.</li>
+          <li>Движение underlying в правильную сторону не гарантирует прибыль.</li>
+        </ul>
       </main>
     </div>
   </body>
