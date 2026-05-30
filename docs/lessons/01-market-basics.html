@@ -29,50 +29,46 @@
         </nav>
       </aside>
       <main class="doc-main">
-        <h1>Урок 1. Основа рынка</h1>
-
-        <table>
-          <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
-          <tbody>
-            <tr><td>Slug</td><td><code>market-basics</code></td></tr>
-            <tr><td>Время</td><td>20-30 минут</td></tr>
-            <tr><td>Уровень</td><td>Основа рынка</td></tr>
-            <tr><td>Маршрут</td><td>С нуля</td></tr>
-          </tbody>
-        </table>
+        <p class="lesson-kicker">Урок 1</p>
+        <h1>Основа рынка</h1>
+        <div class="lesson-meta" aria-label="Параметры урока">
+          <span>20-30 минут</span>
+          <span>Уровень 1</span>
+          <span>Маршрут: с нуля</span>
+          <span>Slug: market-basics</span>
+        </div>
 
         <h2>Главная идея</h2>
-        <p>Перед options нужно понять, что вообще происходит на бирже. Options - это производные от цены, времени и volatility.</p>
-        <p>Если база <code>spot</code>, <code>futures</code>, <code>margin</code>, <code>liquidity</code>, <code>bid/ask spread</code> и order flow плавает, options превращаются в казино с красивыми греческими буквами на входе.</p>
+        <div class="callout">
+          <p>Перед options нужно понять, что вообще происходит на бирже. Options - это производные от цены, времени и volatility.</p>
+          <p>Если база <code>spot</code>, <code>futures</code>, <code>margin</code>, <code>liquidity</code>, <code>bid/ask spread</code> и order flow плавает, options превращаются в казино с красивыми греческими буквами на входе.</p>
+        </div>
 
         <h2>English terms</h2>
         <table>
-          <thead><tr><th>Term</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
+          <thead><tr><th>Term</th><th>Русское значение</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
           <tbody>
-            <tr><td><code>spot market</code></td><td>рынок немедленной покупки/продажи</td><td>базовая цена для derivatives</td></tr>
-            <tr><td><code>long</code></td><td>позиция на рост</td><td>основная направленная ставка вверх</td></tr>
-            <tr><td><code>short</code></td><td>позиция на падение</td><td>ставка вниз или hedge</td></tr>
-            <tr><td><code>margin</code></td><td>заемное обеспечение</td><td>увеличивает возможности и риск</td></tr>
-            <tr><td><code>leverage</code></td><td>плечо</td><td>ускоряет прибыль и убыток</td></tr>
-            <tr><td><code>liquidity</code></td><td>легкость входа и выхода</td><td>плохая liquidity портит сделку</td></tr>
-            <tr><td><code>order book</code></td><td>стакан заявок</td><td>показывает bids и asks</td></tr>
-            <tr><td><code>bid / ask / spread</code></td><td>цены покупки, продажи и разница между ними</td><td>скрытая стоимость торговли</td></tr>
-            <tr><td><code>market order</code></td><td>исполнение сразу по рынку</td><td>опасен при wide spread</td></tr>
-            <tr><td><code>limit order</code></td><td>исполнение по заданной цене</td><td>контролирует цену, но может не исполниться</td></tr>
-            <tr><td><code>perpetual futures</code></td><td>бессрочные futures в crypto</td><td>важны funding и liquidation</td></tr>
-            <tr><td><code>funding rate</code></td><td>платеж между long и short</td><td>стоимость удержания perp position</td></tr>
+            <tr><td><code>spot market</code></td><td>спот-рынок</td><td>рынок немедленной покупки/продажи</td><td>базовая цена для derivatives</td></tr>
+            <tr><td><code>long</code></td><td>лонг</td><td>позиция на рост</td><td>основная направленная ставка вверх</td></tr>
+            <tr><td><code>short</code></td><td>шорт</td><td>позиция на падение</td><td>ставка вниз или hedge</td></tr>
+            <tr><td><code>margin</code></td><td>маржа</td><td>заемное обеспечение</td><td>увеличивает возможности и риск</td></tr>
+            <tr><td><code>leverage</code></td><td>плечо</td><td>множитель позиции</td><td>ускоряет прибыль и убыток</td></tr>
+            <tr><td><code>liquidity</code></td><td>ликвидность</td><td>легкость входа и выхода</td><td>плохая liquidity портит сделку</td></tr>
+            <tr><td><code>order book</code></td><td>стакан заявок</td><td>список bids и asks</td><td>показывает, где есть реальные заявки</td></tr>
+            <tr><td><code>bid / ask / spread</code></td><td>покупка / продажа / спред</td><td>лучшие цены и разница между ними</td><td>скрытая стоимость торговли</td></tr>
+            <tr><td><code>market order</code></td><td>рыночный ордер</td><td>исполнение сразу по рынку</td><td>опасен при wide spread</td></tr>
+            <tr><td><code>limit order</code></td><td>лимитный ордер</td><td>исполнение по заданной цене</td><td>контролирует цену, но может не исполниться</td></tr>
+            <tr><td><code>perpetual futures</code></td><td>бессрочный фьючерс</td><td>futures без обычной expiry</td><td>важны funding и liquidation</td></tr>
+            <tr><td><code>funding rate</code></td><td>ставка funding</td><td>платеж между long и short</td><td>стоимость удержания perp position</td></tr>
           </tbody>
         </table>
 
         <h2>Spot, long и short</h2>
-        <table>
-          <thead><tr><th>Понятие</th><th>Что происходит</th><th>Риск</th></tr></thead>
-          <tbody>
-            <tr><td><code>spot long</code></td><td>покупаешь актив и держишь</td><td>актив может упасть</td></tr>
-            <tr><td><code>short</code></td><td>ставка на падение через заем или derivatives</td><td>актив может резко вырасти</td></tr>
-            <tr><td><code>margin long/short</code></td><td>используешь заемные средства</td><td>возможна liquidation</td></tr>
-          </tbody>
-        </table>
+        <ul class="soft-list">
+          <li><strong>Spot long:</strong> покупаешь актив и держишь. Главный риск - актив может упасть.</li>
+          <li><strong>Short:</strong> ставка на падение через заем или derivatives. Главный риск - актив может резко вырасти.</li>
+          <li><strong>Margin long/short:</strong> используешь заемные средства. Главный риск - liquidation.</li>
+        </ul>
 
         <h2>Liquidity, bid/ask и spread</h2>
         <table>
@@ -108,14 +104,42 @@
         </table>
 
         <h2>Мини-тест</h2>
-        <ol>
-          <li><code>Bid</code> - это цена, по которой рынок готов купить или продать?</li>
-          <li><code>Ask</code> - это лучшая цена покупки или продажи?</li>
-          <li><code>Spread</code> - это разница между чем?</li>
-          <li>Когда market order опаснее: при высокой liquidity или низкой liquidity?</li>
-          <li><code>Funding rate</code> относится прежде всего к spot или perpetual futures?</li>
-        </ol>
-        <p>Ответы: bid = готов купить, ask = готов продать, spread = bid/ask difference, market order опаснее при low liquidity, funding относится к perpetual futures.</p>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="a">
+            <p>1. <code>Bid</code> - это цена, по которой рынок готов...</p>
+            <label><input type="radio" name="q1" value="a" /> купить</label>
+            <label><input type="radio" name="q1" value="b" /> продать</label>
+            <label><input type="radio" name="q1" value="c" /> закрыться вчера</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>2. <code>Ask</code> - это лучшая цена...</p>
+            <label><input type="radio" name="q2" value="a" /> покупки</label>
+            <label><input type="radio" name="q2" value="b" /> продажи</label>
+            <label><input type="radio" name="q2" value="c" /> funding</label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>3. <code>Spread</code> - это...</p>
+            <label><input type="radio" name="q3" value="a" /> разница между bid и ask</label>
+            <label><input type="radio" name="q3" value="b" /> плечо</label>
+            <label><input type="radio" name="q3" value="c" /> дневная volatility</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>4. <code>Market order</code> опаснее всего при...</p>
+            <label><input type="radio" name="q4" value="a" /> высокой liquidity и узком spread</label>
+            <label><input type="radio" name="q4" value="b" /> низкой liquidity и широком spread</label>
+            <label><input type="radio" name="q4" value="c" /> открытом учебнике</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>5. <code>Funding rate</code> относится прежде всего к...</p>
+            <label><input type="radio" name="q5" value="a" /> spot</label>
+            <label><input type="radio" name="q5" value="b" /> perpetual futures</label>
+            <label><input type="radio" name="q5" value="c" /> dividends</label>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit">Проверить</button>
+            <span class="quiz-result" aria-live="polite"></span>
+          </div>
+        </form>
 
         <h2>Короткий вывод</h2>
         <ul>
@@ -128,5 +152,6 @@
         </ul>
       </main>
     </div>
+    <script src="../../scripts/quiz.js"></script>
   </body>
 </html>
