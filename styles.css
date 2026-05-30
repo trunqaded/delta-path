@@ -23,10 +23,36 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background:
+    linear-gradient(120deg, rgba(36, 92, 255, 0.055) 0 1px, transparent 1px 72px),
+    linear-gradient(165deg, rgba(12, 124, 89, 0.045) 0 1px, transparent 1px 84px),
+    var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: 300px;
+  right: 0;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.32;
+  background:
+    linear-gradient(145deg, transparent 0 24%, rgba(36, 92, 255, 0.18) 24% 25%, transparent 25% 100%),
+    linear-gradient(18deg, transparent 0 58%, rgba(12, 124, 89, 0.14) 58% 59%, transparent 59% 100%);
+}
+
+body::before {
+  top: 0;
+}
+
+body::after {
+  bottom: 0;
+  transform: rotate(180deg);
 }
 
 a {
@@ -251,6 +277,8 @@ h2 {
 }
 
 .doc-main {
+  position: relative;
+  z-index: 1;
   width: min(900px, calc(100% - 56px));
   padding: 64px 0 96px;
   margin: 0 auto;
@@ -462,6 +490,63 @@ h2 {
   border-radius: 8px;
   background: var(--paper);
   box-shadow: var(--shadow);
+}
+
+.course-steps {
+  display: grid;
+  gap: 8px;
+  max-width: 640px;
+  margin: 18px 0 22px;
+  padding-left: 24px;
+}
+
+.course-steps li {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.lesson-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.lesson-footer a {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  text-decoration: none;
+}
+
+.lesson-footer a:last-child {
+  border-color: transparent;
+  background: var(--blue);
+  color: #fff;
+}
+
+.doc-main details {
+  max-width: 760px;
+  margin: 18px 0 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.doc-main summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.journal-table td:first-child {
+  width: 28%;
+  color: var(--text);
+  font-weight: 800;
 }
 
 .next-step p {

@@ -107,12 +107,12 @@ BTC и ETH могут двигаться за день так, как крупн
 
 Открой графики:
 
-- BTC;
-- ETH;
-- SPY;
-- QQQ;
-- AAPL;
-- TSLA.
+- [BTC на Binance](https://www.binance.com/en/trade/BTC_USDT?type=spot);
+- [ETH на Binance](https://www.binance.com/en/trade/ETH_USDT?type=spot);
+- [SPY](https://finance.yahoo.com/quote/SPY/);
+- [QQQ](https://finance.yahoo.com/quote/QQQ/);
+- [AAPL](https://finance.yahoo.com/quote/AAPL/);
+- [TSLA](https://finance.yahoo.com/quote/TSLA/).
 
 Не торгуй. Просто наблюдай.
 

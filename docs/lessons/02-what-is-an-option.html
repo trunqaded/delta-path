@@ -29,17 +29,14 @@
         </nav>
       </aside>
       <main class="doc-main">
-        <h1>Урок 2. Что такое option</h1>
-
-        <table>
-          <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
-          <tbody>
-            <tr><td>Slug</td><td><code>what-is-an-option</code></td></tr>
-            <tr><td>Время</td><td>20-30 минут</td></tr>
-            <tr><td>Уровень</td><td>Опцион как контракт</td></tr>
-            <tr><td>Маршрут</td><td>С нуля / Сразу главное</td></tr>
-          </tbody>
-        </table>
+        <p class="lesson-kicker">Урок 2</p>
+        <h1>Что такое option</h1>
+        <div class="lesson-meta" aria-label="Параметры урока">
+          <span>20-30 минут</span>
+          <span>Уровень 2</span>
+          <span>Маршрут: оба</span>
+          <span>Slug: what-is-an-option</span>
+        </div>
 
         <h2>Главная идея</h2>
         <p><code>Option</code> - это контракт, который дает право, но не обязанность, купить или продать <code>underlying asset</code> по заранее заданной цене.</p>
@@ -47,15 +44,15 @@
 
         <h2>English terms</h2>
         <table>
-          <thead><tr><th>Term</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
+          <thead><tr><th>Term</th><th>Русское значение</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
           <tbody>
-            <tr><td><code>option</code></td><td>контракт с правом, но без обязанности</td><td>вся механика курса строится вокруг этого права</td></tr>
-            <tr><td><code>underlying asset</code></td><td>базовый актив: BTC, ETH, SPY, AAPL</td><td>option является производным от цены этого актива</td></tr>
-            <tr><td><code>call</code></td><td>право купить underlying</td><td>базовый bullish-инструмент</td></tr>
-            <tr><td><code>put</code></td><td>право продать underlying</td><td>bearish-инструмент или защита</td></tr>
-            <tr><td><code>strike</code></td><td>цена исполнения</td><td>точка, относительно которой считается payoff</td></tr>
-            <tr><td><code>premium</code></td><td>цена option</td><td>max loss покупателя long option</td></tr>
-            <tr><td><code>expiry</code></td><td>дата истечения</td><td>время ограничено, а theta не спит</td></tr>
+            <tr><td><code>option</code></td><td>опцион</td><td>контракт с правом, но без обязанности</td><td>вся механика курса строится вокруг этого права</td></tr>
+            <tr><td><code>underlying asset</code></td><td>базовый актив</td><td>BTC, ETH, SPY, AAPL</td><td>option является производным от цены этого актива</td></tr>
+            <tr><td><code>call</code></td><td>колл</td><td>право купить underlying</td><td>базовый bullish-инструмент</td></tr>
+            <tr><td><code>put</code></td><td>пут</td><td>право продать underlying</td><td>bearish-инструмент или защита</td></tr>
+            <tr><td><code>strike</code></td><td>страйк</td><td>цена исполнения</td><td>точка, относительно которой считается payoff</td></tr>
+            <tr><td><code>premium</code></td><td>премия</td><td>цена option</td><td>max loss покупателя long option</td></tr>
+            <tr><td><code>expiry</code></td><td>экспирация</td><td>дата истечения</td><td>время ограничено, а theta не спит</td></tr>
           </tbody>
         </table>
 
@@ -121,7 +118,15 @@
 
         <h2>Практика</h2>
         <p>ETH стоит $4,000. Ты покупаешь ETH call: strike $4,400, premium $150, expiry 21 день. Где breakeven, max loss, и что будет при ETH = $4,300 и $4,700?</p>
+        <details>
+          <summary>Показать решение ETH call</summary>
+          <p><code>Breakeven = $4,400 + $150 = $4,550</code>. <code>Max loss = $150</code>. При ETH = $4,300 option expires worthless, P/L = -$150. При ETH = $4,700 intrinsic value = $300, P/L = +$150.</p>
+        </details>
         <p>SPY стоит $500. Ты покупаешь SPY put: strike $480, premium $8, expiry 30 дней. Где breakeven для put, max loss, и что будет при SPY = $490 и $460?</p>
+        <details>
+          <summary>Показать решение SPY put</summary>
+          <p><code>Breakeven = $480 - $8 = $472</code>. <code>Max loss = $8</code>. При SPY = $490 put expires worthless, P/L = -$8. При SPY = $460 intrinsic value = $20, P/L = +$12.</p>
+        </details>
 
         <h2>Мини-тест</h2>
         <ol>
@@ -141,6 +146,10 @@
           <li><code>Premium</code> - цена этого права.</li>
           <li>Движение underlying в правильную сторону не гарантирует прибыль.</li>
         </ul>
+        <nav class="lesson-footer" aria-label="Навигация урока">
+          <a href="01-market-basics.html">Назад: основа рынка</a>
+          <a href="../roadmap.html">Дальше: карта курса</a>
+        </nav>
       </main>
     </div>
   </body>

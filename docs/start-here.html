@@ -57,15 +57,23 @@
 
         <h2>Первая задача</h2>
         <p>BTC = $100,000, long call strike = $110,000, premium = $3,000, expiry = 30 дней.</p>
-        <table>
-          <thead><tr><th>BTC на expiry</th><th>Intrinsic value</th><th>P/L</th></tr></thead>
-          <tbody>
-            <tr><td>$105,000</td><td>$0</td><td>-$3,000</td></tr>
-            <tr><td>$113,000</td><td>$3,000</td><td>$0</td></tr>
-            <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td></tr>
-          </tbody>
-        </table>
-        <p><code>Breakeven = strike + premium = $113,000</code>. <code>Max loss = premium = $3,000</code>.</p>
+        <p>Сначала попробуй сам: найди breakeven, max loss и P/L при BTC = $105,000, $113,000, $120,000.</p>
+        <details>
+          <summary>Показать решение</summary>
+          <table>
+            <thead><tr><th>BTC на expiry</th><th>Intrinsic value</th><th>P/L</th></tr></thead>
+            <tbody>
+              <tr><td>$105,000</td><td>$0</td><td>-$3,000</td></tr>
+              <tr><td>$113,000</td><td>$3,000</td><td>$0</td></tr>
+              <tr><td>$120,000</td><td>$10,000</td><td>+$7,000</td></tr>
+            </tbody>
+          </table>
+          <p><code>Breakeven = strike + premium = $113,000</code>. <code>Max loss = premium = $3,000</code>.</p>
+        </details>
+        <nav class="lesson-footer" aria-label="Следующий шаг">
+          <a href="../index.html">Назад на главную</a>
+          <a href="lessons/01-market-basics.html">Дальше: урок 1</a>
+        </nav>
       </main>
     </div>
   </body>

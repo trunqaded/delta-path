@@ -31,19 +31,33 @@
       <main class="doc-main">
         <h1>Шаблон журнала сделок</h1>
         <p>Без журнала легко перепутать навык с удачей. Каждая учебная или реальная сделка должна оставлять след.</p>
-        <h2>Поля записи</h2>
-        <ul>
-          <li>Дата, актив, рынок и стратегия.</li>
-          <li>Причина входа, strike, expiry, premium и implied volatility.</li>
-          <li>Delta, theta, vega, максимальный риск и breakeven.</li>
-          <li>Целевой сценарий, альтернативный сценарий и план выхода.</li>
-          <li>Результат, ошибка и вывод.</li>
-        </ul>
+
+        <h2>Заполняемая структура</h2>
+        <table class="journal-table">
+          <tbody>
+            <tr><td>Дата</td><td></td></tr>
+            <tr><td>Актив / underlying</td><td>BTC, ETH, SPY, QQQ, AAPL...</td></tr>
+            <tr><td>Рынок</td><td>crypto / stocks / ETF / index / futures</td></tr>
+            <tr><td>Стратегия</td><td>long call, long put, spread...</td></tr>
+            <tr><td>Причина входа</td><td></td></tr>
+            <tr><td>Strike / expiry / premium</td><td></td></tr>
+            <tr><td>IV / delta / theta / vega</td><td></td></tr>
+            <tr><td>Max loss / max profit</td><td></td></tr>
+            <tr><td>Breakeven</td><td></td></tr>
+            <tr><td>Целевой сценарий</td><td></td></tr>
+            <tr><td>Плохой сценарий</td><td></td></tr>
+            <tr><td>План выхода</td><td></td></tr>
+            <tr><td>Результат</td><td></td></tr>
+            <tr><td>Ошибка процесса</td><td></td></tr>
+            <tr><td>Вывод</td><td></td></tr>
+          </tbody>
+        </table>
+
         <h2>Контрольные вопросы</h2>
-        <ul>
-          <li>Что будет, если актив резко вырастет?</li>
-          <li>Что будет, если актив резко упадет?</li>
-          <li>Что будет, если актив не двинется?</li>
+        <ul class="soft-list">
+          <li>Что будет, если underlying резко вырастет?</li>
+          <li>Что будет, если underlying резко упадет?</li>
+          <li>Что будет, если цена не двинется?</li>
           <li>Что будет, если IV вырастет или упадет?</li>
           <li>Где я закрываю сделку и где признаю ошибку?</li>
         </ul>
