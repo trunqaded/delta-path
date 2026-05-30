@@ -6,7 +6,7 @@
     <title>Что такое option - Delta Path</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
-  <body>
+  <body data-page-title="Урок 2. Что такое option" data-lesson-id="lesson-2" data-lesson-order="2">
     <div class="doc-layout">
       <aside class="doc-sidebar">
         <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
@@ -17,12 +17,12 @@
             <a href="../paths/fast-track.html">Сразу главное</a>
           </section>
           <section class="doc-nav-section">
-            <h2>Материалы</h2>
+            <h2>Курс</h2>
             <a href="../start-here.html">Начать здесь</a>
             <a href="../roadmap.html">Карта курса</a>
             <a href="../course-blueprint.html">Архитектура курса</a>
-            <a href="01-market-basics.html">Первый урок</a>
-            <a href="02-what-is-an-option.html" aria-current="page">Что такое option</a>
+            <a href="01-market-basics.html">Урок 1. Основа рынка</a>
+            <a href="02-what-is-an-option.html" aria-current="page">Урок 2. Что такое option</a>
             <a href="../concepts/glossary.html">Словарь</a>
             <a href="../practice/trade-journal-template.html">Журнал сделок</a>
           </section>
@@ -55,6 +55,49 @@
             <tr><td><code>expiry</code></td><td>экспирация</td><td>дата истечения</td><td>время ограничено, а theta не спит</td></tr>
           </tbody>
         </table>
+        <h2>Разбор понятий</h2>
+        <div class="term-grid">
+          <details>
+            <summary><code>option</code></summary>
+            <p><code>Option</code> - это контракт с правом выбора. Покупатель может использовать право, если это выгодно, или не использовать, если смысла нет. Поэтому покупатель платит <code>premium</code>: бесплатного права выбора рынок обычно не выдает.</p>
+          </details>
+          <details>
+            <summary><code>underlying asset</code></summary>
+            <p><code>Underlying asset</code> - актив, от которого зависит option: BTC, ETH, SPY, AAPL. Option не живет сам по себе. Его цена реагирует на движение underlying, время до expiry, volatility и liquidity.</p>
+          </details>
+          <details>
+            <summary><code>call</code></summary>
+            <p><code>Call</code> дает право купить underlying по <code>strike</code>. Для покупателя call базовая идея bullish: актив должен вырасти достаточно сильно, чтобы покрыть premium и выйти выше breakeven.</p>
+          </details>
+          <details>
+            <summary><code>put</code></summary>
+            <p><code>Put</code> дает право продать underlying по <code>strike</code>. Его используют для bearish-идеи или защиты позиции. Например, long SPY put может работать как страховка от падения рынка.</p>
+          </details>
+          <details>
+            <summary><code>strike</code></summary>
+            <p><code>Strike</code> - цена исполнения. Это не прогноз и не цель рынка, а фиксированная точка контракта. От strike считается <code>intrinsic value</code>, breakeven и форма payoff.</p>
+          </details>
+          <details>
+            <summary><code>premium</code></summary>
+            <p><code>Premium</code> - цена option. Для покупателя long option это обычно максимальный убыток. Но premium также задает планку: рынок должен пройти не просто в правильную сторону, а достаточно далеко.</p>
+          </details>
+          <details>
+            <summary><code>expiry</code></summary>
+            <p><code>Expiry</code> - дата истечения option. Время работает против покупателя, если цена и volatility не помогают. Поэтому "направление угадал" и "сделка заработала" - не одно и то же.</p>
+          </details>
+          <details>
+            <summary><code>breakeven</code></summary>
+            <p><code>Breakeven</code> - цена, где итоговый P/L становится нулевым на expiry. Для long call это <code>strike + premium</code>, для long put - <code>strike - premium</code>.</p>
+          </details>
+          <details>
+            <summary><code>intrinsic value</code></summary>
+            <p><code>Intrinsic value</code> - внутренняя стоимость option, если исполнить его сейчас или на expiry. У call это <code>max(underlying - strike, 0)</code>, у put - <code>max(strike - underlying, 0)</code>.</p>
+          </details>
+          <details>
+            <summary><code>IV crush</code></summary>
+            <p><code>IV crush</code> - падение implied volatility после события. Option может подешеветь даже при правильном движении underlying, потому что рынок уже снял неопределенность с цены.</p>
+          </details>
+        </div>
 
         <h2>Простое объяснение</h2>
         <p>BTC стоит $100,000. Ты хочешь получить право купить BTC через месяц по $110,000. За это право ты платишь $3,000.</p>
@@ -71,6 +114,7 @@
         </table>
 
         <h2>Пример crypto: BTC call</h2>
+        <p class="source-links">Ориентир по рынку: <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" rel="noreferrer">BTC на CoinGecko</a>.</p>
         <table>
           <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
           <tbody>
@@ -96,6 +140,7 @@
         <p><code>Breakeven = strike + premium = $113,000</code>.</p>
 
         <h2>Пример traditional: AAPL call</h2>
+        <p class="source-links">Ориентир по рынку: <a href="https://www.nasdaq.com/market-activity/stocks/aapl" target="_blank" rel="noreferrer">AAPL на Nasdaq</a>.</p>
         <table>
           <thead><tr><th>AAPL price на expiry</th><th>Intrinsic value</th><th>P/L покупателя</th></tr></thead>
           <tbody>
@@ -117,12 +162,12 @@
         <p>Перед earnings, решениями ФРС или крупными crypto events options часто дорожают через <code>implied volatility</code>. После события может случиться <code>IV crush</code>: underlying идет в правильную сторону, но option дешевеет, потому что uncertainty исчезла.</p>
 
         <h2>Практика</h2>
-        <p>ETH стоит $4,000. Ты покупаешь ETH call: strike $4,400, premium $150, expiry 21 день. Где breakeven, max loss, и что будет при ETH = $4,300 и $4,700?</p>
+        <p>ETH стоит $4,000. Ты покупаешь ETH call: strike $4,400, premium $150, expiry 21 день. Где breakeven, max loss, и что будет при ETH = $4,300 и $4,700? Для реального наблюдения цены используй <a href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noreferrer">ETH на CoinGecko</a>.</p>
         <details>
           <summary>Показать решение ETH call</summary>
           <p><code>Breakeven = $4,400 + $150 = $4,550</code>. <code>Max loss = $150</code>. При ETH = $4,300 option expires worthless, P/L = -$150. При ETH = $4,700 intrinsic value = $300, P/L = +$150.</p>
         </details>
-        <p>SPY стоит $500. Ты покупаешь SPY put: strike $480, premium $8, expiry 30 дней. Где breakeven для put, max loss, и что будет при SPY = $490 и $460?</p>
+        <p>SPY стоит $500. Ты покупаешь SPY put: strike $480, premium $8, expiry 30 дней. Где breakeven для put, max loss, и что будет при SPY = $490 и $460? Для реального наблюдения используй <a href="https://www.nasdaq.com/market-activity/etf/spy" target="_blank" rel="noreferrer">SPY на Nasdaq</a>.</p>
         <details>
           <summary>Показать решение SPY put</summary>
           <p><code>Breakeven = $480 - $8 = $472</code>. <code>Max loss = $8</code>. При SPY = $490 put expires worthless, P/L = -$8. При SPY = $460 intrinsic value = $20, P/L = +$12.</p>
@@ -176,5 +221,6 @@
       </main>
     </div>
     <script src="../../scripts/quiz.js"></script>
+    <script src="../../scripts/progress.js"></script>
   </body>
 </html>

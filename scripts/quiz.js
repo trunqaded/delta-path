@@ -20,5 +20,9 @@ document.querySelectorAll("[data-quiz]").forEach((quiz) => {
     result.textContent = `${correct} из ${questions.length}. ${
       correct === questions.length ? "Отлично, можно идти дальше." : "Проверь красные ответы и попробуй еще раз."
     }`;
+
+    if (correct === questions.length) {
+      document.dispatchEvent(new CustomEvent("delta-path:quiz-perfect"));
+    }
   });
 });

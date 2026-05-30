@@ -6,7 +6,7 @@
     <title>Основа рынка - Delta Path</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
-  <body>
+  <body data-page-title="Урок 1. Основа рынка" data-lesson-id="lesson-1" data-lesson-order="1">
     <div class="doc-layout">
       <aside class="doc-sidebar">
         <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
@@ -17,12 +17,12 @@
             <a href="../paths/fast-track.html">Сразу главное</a>
           </section>
           <section class="doc-nav-section">
-            <h2>Материалы</h2>
+            <h2>Курс</h2>
             <a href="../start-here.html">Начать здесь</a>
             <a href="../roadmap.html">Карта курса</a>
             <a href="../course-blueprint.html">Архитектура курса</a>
-            <a href="01-market-basics.html" aria-current="page">Первый урок</a>
-            <a href="02-what-is-an-option.html">Что такое option</a>
+            <a href="01-market-basics.html" aria-current="page">Урок 1. Основа рынка</a>
+            <a href="02-what-is-an-option.html">Урок 2. Что такое option</a>
             <a href="../concepts/glossary.html">Словарь</a>
             <a href="../practice/trade-journal-template.html">Журнал сделок</a>
           </section>
@@ -62,6 +62,41 @@
             <tr><td><code>funding rate</code></td><td>ставка funding</td><td>платеж между long и short</td><td>стоимость удержания perp position</td></tr>
           </tbody>
         </table>
+        <h2>Разбор понятий</h2>
+        <div class="term-grid">
+          <details>
+            <summary><code>spot market</code></summary>
+            <p>Спот - это рынок, где ты покупаешь или продаешь сам актив. Купил BTC на spot - у тебя BTC, а не контракт на будущую цену. Это базовая точка отсчета для futures и options.</p>
+          </details>
+          <details>
+            <summary><code>long</code> / <code>short</code></summary>
+            <p><code>Long</code> зарабатывает на росте, <code>short</code> - на падении. Важно не путать направление идеи с контролем риска: правильный прогноз без лимита убытка все равно может закончиться плохо.</p>
+          </details>
+          <details>
+            <summary><code>margin</code> / <code>leverage</code></summary>
+            <p><code>Margin</code> - обеспечение для позиции, <code>leverage</code> - множитель экспозиции. Плечо делает движение рынка сильнее для твоего счета: и прибыль, и ошибку.</p>
+          </details>
+          <details>
+            <summary><code>liquidity</code></summary>
+            <p>Ликвидность отвечает на вопрос: можно ли войти и выйти нормальным размером без большой потери на цене. Неликвидный рынок может наказать еще до того, как твой прогноз успеет стать правым или неправым.</p>
+          </details>
+          <details>
+            <summary><code>order book</code></summary>
+            <p>Стакан показывает заявки покупателей и продавцов. Он помогает увидеть, где есть интерес, но не является обещанием: заявки могут исчезать, особенно на быстрых движениях.</p>
+          </details>
+          <details>
+            <summary><code>bid / ask / spread</code></summary>
+            <p><code>Bid</code> - лучшая цена покупки, <code>ask</code> - лучшая цена продажи, <code>spread</code> - разница между ними. Чем шире spread, тем дороже просто войти и выйти.</p>
+          </details>
+          <details>
+            <summary><code>market order</code> / <code>limit order</code></summary>
+            <p><code>Market order</code> просит исполнить сейчас, цена может быть хуже ожидаемой. <code>Limit order</code> задает цену, но может не исполниться. Скорость против контроля - классический обмен.</p>
+          </details>
+          <details>
+            <summary><code>perpetual futures</code> / <code>funding rate</code></summary>
+            <p><code>Perpetual futures</code> - бессрочный фьючерс без обычной экспирации. <code>Funding rate</code> удерживает цену perp около spot и регулярно перераспределяет платежи между long и short.</p>
+          </details>
+        </div>
 
         <h2>Spot, long и short</h2>
         <ul class="soft-list">
@@ -95,12 +130,12 @@
         <p>Открой графики BTC, ETH, SPY, QQQ, AAPL, TSLA. Не торгуй. Просто наблюдай, как двигается цена, где liquidity, как меняется volatility.</p>
         <p>
           Для наблюдения можно открыть:
-          <a href="https://www.binance.com/en/trade/BTC_USDT?type=spot" target="_blank" rel="noreferrer">BTC на Binance</a>,
-          <a href="https://www.binance.com/en/trade/ETH_USDT?type=spot" target="_blank" rel="noreferrer">ETH на Binance</a>,
-          <a href="https://finance.yahoo.com/quote/SPY/" target="_blank" rel="noreferrer">SPY</a>,
-          <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" rel="noreferrer">QQQ</a>,
-          <a href="https://finance.yahoo.com/quote/AAPL/" target="_blank" rel="noreferrer">AAPL</a>,
-          <a href="https://finance.yahoo.com/quote/TSLA/" target="_blank" rel="noreferrer">TSLA</a>.
+          <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" rel="noreferrer">BTC на CoinGecko</a>,
+          <a href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noreferrer">ETH на CoinGecko</a>,
+          <a href="https://www.nasdaq.com/market-activity/etf/spy" target="_blank" rel="noreferrer">SPY на Nasdaq</a>,
+          <a href="https://www.nasdaq.com/market-activity/etf/qqq" target="_blank" rel="noreferrer">QQQ на Nasdaq</a>,
+          <a href="https://www.nasdaq.com/market-activity/stocks/aapl" target="_blank" rel="noreferrer">AAPL на Nasdaq</a>,
+          <a href="https://www.nasdaq.com/market-activity/stocks/tsla" target="_blank" rel="noreferrer">TSLA на Nasdaq</a>.
           Это ссылки для наблюдения, не для сделок.
         </p>
         <table>
@@ -167,5 +202,6 @@
       </main>
     </div>
     <script src="../../scripts/quiz.js"></script>
+    <script src="../../scripts/progress.js"></script>
   </body>
 </html>
