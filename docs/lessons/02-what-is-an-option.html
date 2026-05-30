@@ -129,14 +129,37 @@
         </details>
 
         <h2>Мини-тест</h2>
-        <ol>
-          <li><code>Call</code> дает право купить или продать underlying?</li>
-          <li><code>Put</code> дает право купить или продать underlying?</li>
-          <li>Покупатель option платит premium, funding или dividend?</li>
-          <li>Для long call breakeven: strike + premium или strike - premium?</li>
-          <li>Если option expires worthless, что теряет покупатель long option?</li>
-        </ol>
-        <p>Ответы: call = купить, put = продать, premium, strike + premium, premium.</p>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="a">
+            <p>1. <code>Call</code> дает право...</p>
+            <label><input type="radio" name="q1" value="a" /> купить underlying по strike</label>
+            <label><input type="radio" name="q1" value="b" /> продать underlying по strike</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>2. <code>Put</code> дает право...</p>
+            <label><input type="radio" name="q2" value="a" /> купить underlying по strike</label>
+            <label><input type="radio" name="q2" value="b" /> продать underlying по strike</label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>3. Покупатель option платит...</p>
+            <label><input type="radio" name="q3" value="a" /> <code>premium</code></label>
+            <label><input type="radio" name="q3" value="b" /> <code>funding rate</code></label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>4. Для long call breakeven обычно считается как...</p>
+            <label><input type="radio" name="q4" value="a" /> <code>strike + premium</code></label>
+            <label><input type="radio" name="q4" value="b" /> <code>strike - premium</code></label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>5. Если option <code>expires worthless</code>, покупатель long option теряет...</p>
+            <label><input type="radio" name="q5" value="a" /> весь underlying</label>
+            <label><input type="radio" name="q5" value="b" /> уплаченный <code>premium</code></label>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit">Проверить</button>
+            <span class="quiz-result" aria-live="polite"></span>
+          </div>
+        </form>
 
         <h2>Короткий вывод</h2>
         <ul>
@@ -152,5 +175,6 @@
         </nav>
       </main>
     </div>
+    <script src="../../scripts/quiz.js"></script>
   </body>
 </html>

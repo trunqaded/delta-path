@@ -6,6 +6,13 @@
 
 Даже для быстрого маршрута лучше сначала просмотреть [Основа рынка](../lessons/01-market-basics.md). Если `bid/ask spread`, `margin`, `leverage`, `liquidity`, `futures`, `perpetual futures` и `funding rate` не считываются уверенно, options будут выглядеть проще, чем они есть.
 
+## Правило быстрого пути
+
+Не выбирай этот маршрут как отдельный курс. Это режим ускоренного просмотра главных рисков после рыночной базы: `breakeven`, `max loss`, `payoff`, `theta`, `vega`, `IV crush`.
+
+- [Проверить базу](../lessons/01-market-basics.md)
+- [Перейти к option](../lessons/02-what-is-an-option.md)
+
 ## Главная идея
 
 В options мало сказать: "BTC вырастет" или "SPY упадет".

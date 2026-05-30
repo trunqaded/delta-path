@@ -29,9 +29,19 @@
         </nav>
       </aside>
       <main class="doc-main">
+        <p class="lesson-kicker">Маршрут</p>
         <h1>Путь 2. Сразу главное</h1>
         <p>Быстрый маршрут к практическому ядру: где риск, где breakeven, почему payoff важнее красивого прогноза, и как theta, vega и implied volatility могут испортить настроение.</p>
         <p>Даже для быстрого маршрута лучше сначала просмотреть <a href="../lessons/01-market-basics.html">Основу рынка</a>. Если bid/ask spread, margin, leverage, liquidity, futures, perpetual futures и funding rate не считываются уверенно, options будут выглядеть проще, чем они есть.</p>
+
+        <section class="callout">
+          <h2>Правило быстрого пути</h2>
+          <p>Не выбирай этот маршрут как отдельный курс. Это режим ускоренного просмотра главных рисков после рыночной базы: <code>breakeven</code>, <code>max loss</code>, <code>payoff</code>, <code>theta</code>, <code>vega</code>, <code>IV crush</code>.</p>
+          <div class="action-row">
+            <a class="primary-action" href="../lessons/01-market-basics.html">Проверить базу</a>
+            <a class="secondary-action" href="../lessons/02-what-is-an-option.html">К option</a>
+          </div>
+        </section>
 
         <h2>Главные вопросы</h2>
         <table>
@@ -60,12 +70,33 @@
         </table>
 
         <h2>Мини-тест</h2>
-        <ol>
-          <li>Для long call breakeven: strike + premium или strike - premium?</li>
-          <li>Кому обычно вредит theta: покупателю или продавцу option?</li>
-          <li>IV crush - это рост цены underlying или падение implied volatility после события?</li>
-        </ol>
+        <form class="quiz" data-quiz>
+          <div class="quiz-question" data-answer="a">
+            <p>1. Для long call breakeven...</p>
+            <label><input type="radio" name="q1" value="a" /> <code>strike + premium</code></label>
+            <label><input type="radio" name="q1" value="b" /> <code>strike - premium</code></label>
+          </div>
+          <div class="quiz-question" data-answer="a">
+            <p>2. <code>Theta</code> обычно больнее для...</p>
+            <label><input type="radio" name="q2" value="a" /> покупателя option</label>
+            <label><input type="radio" name="q2" value="b" /> держателя spot без плеча</label>
+          </div>
+          <div class="quiz-question" data-answer="b">
+            <p>3. <code>IV crush</code> - это...</p>
+            <label><input type="radio" name="q3" value="a" /> рост цены underlying после события</label>
+            <label><input type="radio" name="q3" value="b" /> падение implied volatility после события</label>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit">Проверить</button>
+            <span class="quiz-result" aria-live="polite"></span>
+          </div>
+        </form>
+        <nav class="lesson-footer" aria-label="Навигация быстрого маршрута">
+          <a href="../start-here.html">Назад: начать здесь</a>
+          <a href="../lessons/02-what-is-an-option.html">Дальше: option</a>
+        </nav>
       </main>
     </div>
+    <script src="../../scripts/quiz.js"></script>
   </body>
 </html>
