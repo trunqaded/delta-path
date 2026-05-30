@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Основа рынка - Delta Path</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
+        <nav>
+          <section class="doc-nav-section">
+            <h2>Маршруты</h2>
+            <a href="../paths/from-zero.html">С нуля</a>
+            <a href="../paths/fast-track.html">Сразу главное</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Материалы</h2>
+            <a href="../start-here.html">Начать здесь</a>
+            <a href="../roadmap.html">Карта курса</a>
+            <a href="../course-blueprint.html">Архитектура курса</a>
+            <a href="01-market-basics.html" aria-current="page">Первый урок</a>
+            <a href="02-what-is-an-option.html">Что такое option</a>
+            <a href="../concepts/glossary.html">Словарь</a>
+            <a href="../practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+      <main class="doc-main">
+        <h1>Урок 1. Основа рынка</h1>
+
+        <table>
+          <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
+          <tbody>
+            <tr><td>Slug</td><td><code>market-basics</code></td></tr>
+            <tr><td>Время</td><td>20-30 минут</td></tr>
+            <tr><td>Уровень</td><td>Основа рынка</td></tr>
+            <tr><td>Маршрут</td><td>С нуля</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Главная идея</h2>
+        <p>Перед options нужно понять, что вообще происходит на бирже. Options - это производные от цены, времени и volatility.</p>
+        <p>Если база <code>spot</code>, <code>futures</code>, <code>margin</code>, <code>liquidity</code>, <code>bid/ask spread</code> и order flow плавает, options превращаются в казино с красивыми греческими буквами на входе.</p>
+
+        <h2>English terms</h2>
+        <table>
+          <thead><tr><th>Term</th><th>Простое объяснение</th><th>Почему важно</th></tr></thead>
+          <tbody>
+            <tr><td><code>spot market</code></td><td>рынок немедленной покупки/продажи</td><td>базовая цена для derivatives</td></tr>
+            <tr><td><code>long</code></td><td>позиция на рост</td><td>основная направленная ставка вверх</td></tr>
+            <tr><td><code>short</code></td><td>позиция на падение</td><td>ставка вниз или hedge</td></tr>
+            <tr><td><code>margin</code></td><td>заемное обеспечение</td><td>увеличивает возможности и риск</td></tr>
+            <tr><td><code>leverage</code></td><td>плечо</td><td>ускоряет прибыль и убыток</td></tr>
+            <tr><td><code>liquidity</code></td><td>легкость входа и выхода</td><td>плохая liquidity портит сделку</td></tr>
+            <tr><td><code>order book</code></td><td>стакан заявок</td><td>показывает bids и asks</td></tr>
+            <tr><td><code>bid / ask / spread</code></td><td>цены покупки, продажи и разница между ними</td><td>скрытая стоимость торговли</td></tr>
+            <tr><td><code>market order</code></td><td>исполнение сразу по рынку</td><td>опасен при wide spread</td></tr>
+            <tr><td><code>limit order</code></td><td>исполнение по заданной цене</td><td>контролирует цену, но может не исполниться</td></tr>
+            <tr><td><code>perpetual futures</code></td><td>бессрочные futures в crypto</td><td>важны funding и liquidation</td></tr>
+            <tr><td><code>funding rate</code></td><td>платеж между long и short</td><td>стоимость удержания perp position</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Spot, long и short</h2>
+        <table>
+          <thead><tr><th>Понятие</th><th>Что происходит</th><th>Риск</th></tr></thead>
+          <tbody>
+            <tr><td><code>spot long</code></td><td>покупаешь актив и держишь</td><td>актив может упасть</td></tr>
+            <tr><td><code>short</code></td><td>ставка на падение через заем или derivatives</td><td>актив может резко вырасти</td></tr>
+            <tr><td><code>margin long/short</code></td><td>используешь заемные средства</td><td>возможна liquidation</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Liquidity, bid/ask и spread</h2>
+        <table>
+          <thead><tr><th>Актив</th><th>Bid</th><th>Ask</th><th>Spread</th></tr></thead>
+          <tbody>
+            <tr><td>SPY</td><td>$500.00</td><td>$500.01</td><td>$0.01</td></tr>
+            <tr><td>Неликвидный altcoin</td><td>$1.00</td><td>$1.08</td><td>$0.08</td></tr>
+          </tbody>
+        </table>
+        <p>На SPY вход и выход почти не теряют стоимость на spread. На altcoin ты можешь начать с заметного минуса просто потому, что купил по ask и продашь по bid.</p>
+
+        <h2>Futures, perpetual futures и funding</h2>
+        <table>
+          <thead><tr><th>Инструмент</th><th>Есть expiry?</th><th>Что важно</th></tr></thead>
+          <tbody>
+            <tr><td>Spot</td><td>Нет</td><td>владеешь активом</td></tr>
+            <tr><td>Futures</td><td>Да</td><td>expiry, basis, margin</td></tr>
+            <tr><td>Perpetual futures</td><td>Нет</td><td>funding, liquidation, leverage</td></tr>
+            <tr><td>Options</td><td>Да</td><td>strike, premium, Greeks, volatility</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Практика: наблюдение без торговли</h2>
+        <p>Открой графики BTC, ETH, SPY, QQQ, AAPL, TSLA. Не торгуй. Просто наблюдай, как двигается цена, где liquidity, как меняется volatility.</p>
+        <table>
+          <thead><tr><th>Вопрос</th><th>Что смотреть</th></tr></thead>
+          <tbody>
+            <tr><td>Как двигается цена?</td><td>плавно, резко, гэпами, длинными свечами</td></tr>
+            <tr><td>Где выше volatility?</td><td>дневной range, резкие движения</td></tr>
+            <tr><td>Где лучше liquidity?</td><td>spread, объем, глубина</td></tr>
+            <tr><td>Есть ли новости?</td><td>earnings, macro, crypto events</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Мини-тест</h2>
+        <ol>
+          <li><code>Bid</code> - это цена, по которой рынок готов купить или продать?</li>
+          <li><code>Ask</code> - это лучшая цена покупки или продажи?</li>
+          <li><code>Spread</code> - это разница между чем?</li>
+          <li>Когда market order опаснее: при высокой liquidity или низкой liquidity?</li>
+          <li><code>Funding rate</code> относится прежде всего к spot или perpetual futures?</li>
+        </ol>
+        <p>Ответы: bid = готов купить, ask = готов продать, spread = bid/ask difference, market order опаснее при low liquidity, funding относится к perpetual futures.</p>
+
+        <h2>Короткий вывод</h2>
+        <ul>
+          <li>Options нельзя учить в отрыве от базового рынка.</li>
+          <li>Spot, futures, perpetual futures и options имеют разные риски.</li>
+          <li>Bid/ask spread - реальная стоимость торговли.</li>
+          <li>Liquidity важнее, чем кажется новичку.</li>
+          <li>Leverage ускоряет не только прибыль, но и ошибку.</li>
+          <li>На первом этапе практика - наблюдать, а не торговать.</li>
+        </ul>
+      </main>
+    </div>
+  </body>
+</html>

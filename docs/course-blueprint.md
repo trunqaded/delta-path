@@ -240,6 +240,7 @@ Delta Path - учебный курс по опционам для самосто
 
 Порядок:
 
+0. `market-basics` - быстрый skim базы: spot, futures, liquidity, bid/ask spread, margin, funding.
 1. `what-is-an-option` - базовый контракт.
 2. `breakeven` - где сделка становится прибыльной.
 3. `payoff-basics` - форма риска на экспирации.

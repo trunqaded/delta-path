@@ -4,6 +4,8 @@
 
 Он не заменяет полный курс. Это карта главных рисков.
 
+Даже для быстрого маршрута лучше сначала просмотреть [Основа рынка](../lessons/01-market-basics.md). Если `bid/ask spread`, `margin`, `leverage`, `liquidity`, `futures`, `perpetual futures` и `funding rate` не считываются уверенно, options будут выглядеть проще, чем они есть.
+
 ## Главная идея
 
 В options мало сказать: "BTC вырастет" или "SPY упадет".
@@ -23,6 +25,7 @@
 
 | Шаг | Тема | Главный вопрос |
 | ---: | --- | --- |
+| 0 | Market basics skim | Есть ли база spot/futures/liquidity? |
 | 1 | What is an option | Что именно дает контракт? |
 | 2 | Breakeven | Где сделка становится прибыльной? |
 | 3 | Payoff basics | Что будет на expiry? |

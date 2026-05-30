@@ -34,7 +34,8 @@
 
 Начни с этих материалов:
 
-- [Что такое опцион](../lessons/01-what-is-an-option.md)
+- [Основа рынка](../lessons/01-market-basics.md)
+- [Что такое option](../lessons/02-what-is-an-option.md)
 - [Минимальный словарь](../concepts/glossary.md)
 - [Шаблон журнала сделок](../practice/trade-journal-template.md)
 
