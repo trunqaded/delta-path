@@ -61,14 +61,14 @@
         <div class="visual-panel" aria-label="Delta curve">
           <svg viewBox="0 0 760 330" role="img">
             <title>Delta grows as option moves ITM</title>
-            <line class="chart-axis" x1="80" y1="260" x2="700" y2="260" />
-            <line class="chart-axis" x1="90" y1="45" x2="90" y2="275" />
-            <path class="chart-area" d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60 L680 260 L90 260 Z" />
-            <path class="chart-line" d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60" />
-            <text class="chart-title" x="90" y="30">Delta call: от почти 0 к почти 1</text>
-            <text class="chart-label" x="95" y="292">OTM</text>
-            <text class="chart-label" x="360" y="292">ATM</text>
-            <text class="chart-label" x="630" y="292">ITM</text>
+            <line x1="80" y1="260" x2="700" y2="260" stroke="#9aa1ae" stroke-width="2" />
+            <line x1="90" y1="45" x2="90" y2="275" stroke="#9aa1ae" stroke-width="2" />
+            <path d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60 L680 260 L90 260 Z" fill="rgba(36, 92, 255, 0.10)" stroke="none" />
+            <path d="M90 250 C220 235 310 205 380 160 C460 105 560 70 680 60" fill="none" stroke="#245cff" stroke-width="4" stroke-linecap="round" />
+            <text x="90" y="30" fill="#17191f" font-size="18" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">Delta call: от почти 0 к почти 1</text>
+            <text x="95" y="292" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">OTM</text>
+            <text x="360" y="292" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">ATM</text>
+            <text x="630" y="292" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">ITM</text>
           </svg>
         </div>
 
@@ -77,12 +77,12 @@
         <div class="visual-panel" aria-label="Theta decay">
           <svg viewBox="0 0 760 330" role="img">
             <title>Theta decay accelerates near expiry</title>
-            <line class="chart-axis" x1="80" y1="260" x2="700" y2="260" />
-            <line class="chart-axis" x1="90" y1="45" x2="90" y2="275" />
-            <path class="chart-loss" d="M100 70 C250 85 410 125 530 190 C600 230 650 250 690 258" />
-            <text class="chart-title" x="90" y="30">Time value: ближе к expiry падение быстрее</text>
-            <text class="chart-label" x="98" y="292">30 дней</text>
-            <text class="chart-label" x="635" y="292">expiry</text>
+            <line x1="80" y1="260" x2="700" y2="260" stroke="#9aa1ae" stroke-width="2" />
+            <line x1="90" y1="45" x2="90" y2="275" stroke="#9aa1ae" stroke-width="2" />
+            <path d="M100 70 C250 85 410 125 530 190 C600 230 650 250 690 258" fill="none" stroke="#b42318" stroke-width="4" stroke-linecap="round" />
+            <text x="90" y="30" fill="#17191f" font-size="18" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">Time value: ближе к expiry падение быстрее</text>
+            <text x="98" y="292" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">30 дней</text>
+            <text x="635" y="292" fill="#626978" font-size="14" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">expiry</text>
           </svg>
         </div>
 
