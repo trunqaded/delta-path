@@ -318,6 +318,10 @@ h2 {
   color: #ffffff;
 }
 
+.doc-main .primary-action {
+  color: #ffffff;
+}
+
 .secondary-action {
   border: 1px solid var(--line);
   background: var(--paper);
