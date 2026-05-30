@@ -7,47 +7,55 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <header class="hero">
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="index.html"><strong>Delta Path</strong><span>Обучение опционам</span></a>
+        <nav>
+          <section class="doc-nav-section">
+            <h2>Старт</h2>
+            <a href="index.html" aria-current="page">Главная</a>
+            <a href="docs/start-here.html">Начать здесь</a>
+            <a href="docs/roadmap.html">Карта курса</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Маршруты</h2>
+            <a href="docs/paths/from-zero.html">С нуля</a>
+            <a href="docs/paths/fast-track.html">Сразу главное</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Материалы</h2>
+            <a href="docs/lessons/01-what-is-an-option.html">Первый урок</a>
+            <a href="docs/concepts/glossary.html">Словарь</a>
+            <a href="docs/practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+
+      <main class="doc-main home-main">
         <p class="eyebrow">Обучение опционам</p>
         <h1>Delta Path</h1>
         <p class="lead">
-          Один набор материалов, два маршрута: спокойный путь с нуля и быстрый путь к главному.
+          Один учебный корпус по опционам: сначала понятная база, затем быстрые переходы к ключевым практическим идеям.
         </p>
-      </header>
 
-      <section class="routes" aria-label="Маршруты обучения">
-        <a class="route" href="docs/paths/from-zero.html">
-          <span class="route-kicker">Путь 1</span>
-          <strong>С нуля</strong>
-          <span>База рынка, call и put, греки, волатильность, стратегии и риск.</span>
-        </a>
+        <section class="next-step" aria-label="Рекомендуемый следующий шаг">
+          <h2>Продолжить обучение</h2>
+          <p>
+            Если нет причины спешить, начинай с первого урока. Быстрый маршрут нужен как сжатая карта главных рисков, а не как отдельный курс.
+          </p>
+          <div class="action-row">
+            <a class="primary-action" href="docs/lessons/01-what-is-an-option.html">Открыть первый урок</a>
+            <a class="secondary-action" href="docs/paths/fast-track.html">Посмотреть главное</a>
+          </div>
+        </section>
 
-        <a class="route route-accent" href="docs/paths/fast-track.html">
-          <span class="route-kicker">Путь 2</span>
-          <strong>Сразу главное</strong>
-          <span>Breakeven, payoff, максимальный риск, theta, vega и IV crush.</span>
-        </a>
-      </section>
-
-      <section class="links" aria-label="Материалы">
-        <h2>Материалы</h2>
-        <div class="link-grid">
-          <a href="docs/start-here.html">Начать здесь</a>
-          <a href="docs/roadmap.html">Карта курса</a>
-          <a href="docs/lessons/01-what-is-an-option.html">Первый урок</a>
-          <a href="docs/concepts/glossary.html">Словарь</a>
-          <a href="docs/practice/trade-journal-template.html">Журнал сделок</a>
-        </div>
-      </section>
-
-      <section class="note" aria-label="Как пользоваться">
-        <h2>Как пользоваться</h2>
-        <p>
-          Добавь ссылку на этот файл в Evernote. Отсюда открывай нужный маршрут и возвращайся к материалам.
-          Когда сайт будет опубликован, эта же страница станет входом в публичную версию.
-        </p>
-      </section>
-    </main>
+        <section class="doc-card-grid" aria-label="Основные разделы">
+          <a class="doc-card" href="docs/start-here.html"><strong>Начать здесь</strong><span>Что это за курс и как им пользоваться.</span></a>
+          <a class="doc-card" href="docs/roadmap.html"><strong>Карта курса</strong><span>8 уровней обучения и месячный маршрут.</span></a>
+          <a class="doc-card" href="docs/concepts/glossary.html"><strong>Словарь</strong><span>Минимальные термины: call, put, delta, theta, vega, IV.</span></a>
+          <a class="doc-card" href="docs/practice/trade-journal-template.html"><strong>Журнал сделок</strong><span>Шаблон для paper trading и будущей практики.</span></a>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
