@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Что такое опцион - Delta Path</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <a class="doc-brand" href="../../index.html"><strong>Delta Path</strong><span>Документация</span></a>
+        <nav>
+          <section class="doc-nav-section">
+            <h2>Маршруты</h2>
+            <a href="../paths/from-zero.html">С нуля</a>
+            <a href="../paths/fast-track.html">Сразу главное</a>
+          </section>
+          <section class="doc-nav-section">
+            <h2>Материалы</h2>
+            <a href="../start-here.html">Начать здесь</a>
+            <a href="../roadmap.html">Карта курса</a>
+            <a href="01-what-is-an-option.html" aria-current="page">Первый урок</a>
+            <a href="../concepts/glossary.html">Словарь</a>
+            <a href="../practice/trade-journal-template.html">Журнал сделок</a>
+          </section>
+        </nav>
+      </aside>
+      <main class="doc-main">
+        <h1>Что такое опцион</h1>
+        <p>Опцион - это контракт, который дает право, но не обязанность, купить или продать актив по заранее заданной цене.</p>
+        <h2>Два базовых типа</h2>
+        <ul>
+          <li><strong>Call</strong>: право купить актив.</li>
+          <li><strong>Put</strong>: право продать актив.</li>
+        </ul>
+        <h2>Пример на BTC</h2>
+        <p>BTC стоит $100,000. Call со страйком $110,000 дает право купить BTC по $110,000.</p>
+        <p>Если BTC вырастет до $130,000, call может сильно вырасти в цене. Если BTC останется ниже $110,000 к экспирации, этот call может сгореть.</p>
+        <h2>Мини-задача</h2>
+        <p>BTC = $100,000, call strike = $110,000, premium = $3,000. Где breakeven и какой максимальный убыток?</p>
+      </main>
+    </div>
+  </body>
+</html>
